@@ -1,0 +1,31 @@
+<div
+  class="hero flex w-full flex-column justify-content-center align-items-center gap-3 pt-3 pb-8"
+>
+  <div class="flex justify-content-center align-items-center gap-4">
+    <img src="./assets/images/hero-image-1.svg" alt="read-avatar-1" />
+    <div class="flex flex-column align-items-center justify-content-evenly">
+      <h3 class="text-6xl uppercase">Hola!</h3>
+      <h2 class="text-7xl">¿Buscas un libro?</h2>
+    </div>
+    <img
+      class="align-self-end"
+      src="./assets/images/hero-image-2.svg"
+      alt="read-avatar-2"
+    />
+  </div>
+  <div class="flex gap-2 align-items-end">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText />
+    </span>
+    <p-dropdown
+      [options]="categories"
+      optionLabel="type"
+      placeholder="Categorías"
+    ></p-dropdown>
+    <p-button
+      label="BUSCAR AHORA"
+      styleClass="p-button-raised p-button-help"
+    ></p-button>
+  </div>
+</div>

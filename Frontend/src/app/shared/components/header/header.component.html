@@ -1,0 +1,18 @@
+<p-toolbar>
+  <div class="p-toolbar-group-star flex gap-2">
+    <img src="./assets/images/logo.svg" alt="" />
+
+    <p-menubar [model]="menuItems"></p-menubar>
+  </div>
+  <div class="p-toolbar-group-end gap-2">
+    <p-button
+      label="Crear Cuenta"
+      styleClass="p-button-secondary p-button-text"
+    ></p-button>
+    <p-button
+      label="Iniciar sesión"
+      styleClass="p-button-raised"
+      (onClick)="login()"
+    ></p-button>
+  </div>
+</p-toolbar>

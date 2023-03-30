@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter.ttf") format("truetype");
+}
+:root {
+  --licoride: #1b1212;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter";
+  margin: 0;
+  padding: 0;
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .p-component {
+    font-family: "Inter" !important;
+  }
+}
