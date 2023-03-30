@@ -1,0 +1,64 @@
+:host ::ng-deep {
+  .p-dialog-header {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .p-dialog-content {
+    overflow: hidden;
+    padding: 0;
+    border-radius: 6px;
+    color: #fff;
+    background-color: transparent;
+    .login-container {
+      border-top-right-radius: 10px;
+    }
+    p-divider {
+      width: 100% !important;
+    }
+
+    .p-divider-content {
+      background-color: #212121;
+    }
+    .header-form {
+      p-button,
+      .p-button {
+        width: 100% !important;
+      }
+    }
+    form {
+      .p-password {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .keep-sing-in {
+    span {
+      font-size: 12px !important;
+    }
+  }
+  .recover-password {
+    .p-button {
+      .p-button-label {
+        font-size: 12px;
+      }
+    }
+  }
+  .create-account {
+    span {
+      font-size: 14px;
+    }
+    .p-button {
+      .p-button-label {
+        font-size: 14px;
+      }
+    }
+  }
+}

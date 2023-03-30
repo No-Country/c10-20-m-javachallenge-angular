@@ -1,0 +1,22 @@
+:host ::ng-deep {
+  .p-toolbar {
+    justify-content: space-around;
+    background-color: #212121;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    .p-toolbar-group-star {
+      .p-menubar {
+        border: none;
+        background-color: transparent;
+        .p-menuitem-text {
+          color: #fff;
+        }
+        .p-submenu-list .p-menuitem-text {
+          color: #495057;
+        }
+      }
+    }
+  }
+}
