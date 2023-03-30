@@ -1,6 +1,7 @@
 package com.nocountryproject.Backend.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,6 @@ public class Book {
     private String isbn; //unique book identifier
     private String publisherHouse;
     private int yearOfPublication;
-    private int availableQuantity;
+    private boolean availability;
     private String summary;
 }
