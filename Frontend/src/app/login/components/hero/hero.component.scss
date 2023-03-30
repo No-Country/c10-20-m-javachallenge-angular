@@ -1,0 +1,22 @@
+:host ::ng-deep {
+  .hero {
+    background-color: var(--licoride);
+    min-height: 420px;
+    img {
+      width: 150px;
+    }
+    h2,
+    h3 {
+      margin: 0;
+      color: #fff;
+    }
+    h3 {
+      letter-spacing: 4px;
+    }
+    .p-dropdown {
+      width: 220px !important;
+      height: 44.8px !important;
+      align-items: center;
+    }
+  }
+}
