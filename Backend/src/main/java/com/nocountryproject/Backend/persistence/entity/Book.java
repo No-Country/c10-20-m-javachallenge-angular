@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import com.nocountryproject.Backend.persistence.entity.Category;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,8 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long idCategory;
+    @OneToMany
+    private Category idCategory;
     private String title;
     private String author;
     private String isbn; //unique book identifier
