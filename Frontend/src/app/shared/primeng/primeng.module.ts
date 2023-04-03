@@ -11,6 +11,7 @@ import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
 import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
 import { DividerModule } from 'primeng/divider';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { DividerModule } from 'primeng/divider';
     PasswordModule,
     TriStateCheckboxModule,
     DividerModule,
+    CarouselModule,
   ],
 })
 export class PrimengModule {}

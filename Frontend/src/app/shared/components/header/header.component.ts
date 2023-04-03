@@ -19,9 +19,7 @@ export class HeaderComponent implements OnInit {
           console.log('Hiciste click');
         },
       },
-      {
-        label: 'Terminos y Condiciones',
-      },
+
       {
         label: 'Libros',
         items: [
@@ -32,12 +30,15 @@ export class HeaderComponent implements OnInit {
         ],
       },
       {
-        label: 'Contactanos',
+        label: 'Contáctanos',
       },
     ];
   }
 
   public login() {
     this.formService.onOpenForm({ type: 'login' });
+  }
+  public register() {
+    this.formService.onOpenForm({ type: 'register' });
   }
 }
