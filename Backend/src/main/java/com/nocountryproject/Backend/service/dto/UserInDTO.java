@@ -12,4 +12,5 @@ public class UserInDTO {
     private String email;
     private String address;
     private String telephone;
+    private String password;
 }

@@ -1,6 +1,6 @@
 package com.nocountryproject.Backend.controller;
 
-import com.nocountryproject.Backend.exceptions.MyException;
+import com.nocountryproject.Backend.exceptions.UserException;
 import com.nocountryproject.Backend.persistence.entity.User;
 import com.nocountryproject.Backend.service.UserService;
 import com.nocountryproject.Backend.service.dto.UserInDTO;
@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws MyException {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws UserException {
         this.userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }

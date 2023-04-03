@@ -1,6 +1,6 @@
 package com.nocountryproject.Backend.service;
 
-import com.nocountryproject.Backend.exceptions.MyException;
+import com.nocountryproject.Backend.exceptions.UserException;
 import com.nocountryproject.Backend.mapper.UserInDTOToUser;
 import com.nocountryproject.Backend.persistence.entity.User;
 import com.nocountryproject.Backend.persistence.repository.UserRepository;
@@ -35,20 +35,20 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUser(Long id) throws MyException {
+    public void updateUser(Long id) throws UserException {
         Optional<User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()) {
-            throw new MyException("El usuario no existe");
+            throw new UserException("El usuario no existe");
         }/* else {
             this.userRepository.updateUser(id);
         }*/
     }
 
     @Transactional
-    public void deleteUser(Long id) throws MyException{
+    public void deleteUser(Long id) throws UserException {
         Optional <User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()){
-            throw new MyException("EL USUARIO NO EXISTE");
+            throw new UserException("EL USUARIO NO EXISTE");
         } else {
             this.userRepository.deleteById(id);
         }
