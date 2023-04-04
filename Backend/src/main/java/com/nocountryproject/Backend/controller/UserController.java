@@ -34,4 +34,9 @@ public class UserController {
         this.userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public User updateUser(@RequestBody UserInDTO userInDTO, @PathVariable Long id) throws UserException {
+        return this.userService.updateUser(userInDTO, id);
+    }
 }

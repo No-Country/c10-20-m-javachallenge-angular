@@ -35,20 +35,31 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUser(Long id) throws UserException {
+    public User updateUser(UserInDTO userInDTO, Long id) throws UserException {
         Optional<User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()) {
-            throw new UserException("El usuario no existe");
-        }/* else {
-            this.userRepository.updateUser(id);
-        }*/
+            throw new UserException("USER NOT FOUND");
+        } else {
+            User user = optionalUser.get();
+
+            user.setName(userInDTO.getName());
+            user.setLastname(userInDTO.getLastname());
+            user.setDni(userInDTO.getDni());
+            user.setEmail(userInDTO.getEmail());
+            user.setTelephone(userInDTO.getTelephone());
+            user.setAddress(userInDTO.getAddress());
+
+            //user.setPassword(userInDTO.getPassword());
+
+            return this.userRepository.save(user);
+        }
     }
 
     @Transactional
     public void deleteUser(Long id) throws UserException {
         Optional <User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()){
-            throw new UserException("EL USUARIO NO EXISTE");
+            throw new UserException("USER NOT FOUND");
         } else {
             this.userRepository.deleteById(id);
         }
