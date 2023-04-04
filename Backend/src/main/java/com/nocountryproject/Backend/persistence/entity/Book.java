@@ -16,7 +16,8 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "id_category_id")
     private Category idCategory;
     private String title;
     private String author;
