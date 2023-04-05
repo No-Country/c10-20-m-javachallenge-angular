@@ -2,26 +2,34 @@ package com.nocountryproject.Backend.service;
 
 import com.nocountryproject.Backend.exceptions.UserException;
 import com.nocountryproject.Backend.mapper.UserInDTOToUser;
+import com.nocountryproject.Backend.mapper.UserPrincipalFromUser;
 import com.nocountryproject.Backend.persistence.entity.User;
 import com.nocountryproject.Backend.persistence.repository.UserRepository;
 import com.nocountryproject.Backend.service.dto.UserInDTO;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
     private final UserInDTOToUser mapper;
 
+    private final UserPrincipalFromUser principalFromUser;
 
-    public UserService(UserRepository userRepository, UserInDTOToUser mapper) {
+    @Autowired
+    public UserService(UserRepository userRepository, UserInDTOToUser mapper, UserPrincipalFromUser principalFromUser) {
         this.userRepository = userRepository;
         this.mapper = mapper;
+        this.principalFromUser = principalFromUser;
     }
 
     @Transactional
@@ -35,7 +43,7 @@ public class UserService {
     }
 
     @Transactional
-    public User updateUser(UserInDTO userInDTO, Long id) throws UserException {
+    public User updateUser(UserInDTO userInDTO, Long id) {
         Optional<User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()) {
             throw new UserException("USER NOT FOUND");
@@ -56,12 +64,18 @@ public class UserService {
     }
 
     @Transactional
-    public void deleteUser(Long id) throws UserException {
+    public void deleteUser(Long id) {
         Optional <User> optionalUser = this.userRepository.findById(id);
         if (optionalUser.isEmpty()){
             throw new UserException("USER NOT FOUND");
         } else {
             this.userRepository.deleteById(id);
         }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email).orElseThrow( () -> new UserException("USER NOT FOUND"));
+        return principalFromUser.map(user);
     }
 }

@@ -1,0 +1,72 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div
+    class="login-container flex justify-content-center align-items-center bg-primary-500"
+  >
+    <div
+      class="login-image-container w-25rem flex justify-content-center align-items-center"
+    >
+      <img src="./assets/images/hero-image-1.svg" />
+    </div>
+    <div class="flex flex-column gap-2 w-25rem surface-900 p-3">
+      <div class="header-form flex flex-column align-items-center gap-1">
+        <h3 class="m-3">Crear Cuenta</h3>
+      </div>
+      <!-- END FORM-HEADER-->
+      <form class="flex flex-column gap-4">
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>Nombre</label>
+            <input pInputText placeholder="Ingresa tu nombre" />
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>DNI</label>
+            <input pInputText placeholder="Ingresa tu DNI" />
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>Email</label>
+            <input pInputText placeholder="Ingresa tu email" />
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>Contraseña</label>
+            <p-password
+              placeholder="Ingresa tu contraseña"
+              [toggleMask]="true"
+              [feedback]="false"
+            ></p-password>
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>Teléfono</label>
+            <input pInputText placeholder="Ingresa tu teléfono" />
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>Domicilio</label>
+            <input pInputText placeholder="Ingresa tu domicilio" />
+          </div>
+        </div>
+        <!-- END INPUTGROUP -->
+        <p-button
+          label="Registrarse"
+          styleClass="p-button-raised"
+          [style]="{ width: '100%' }"
+        ></p-button>
+        <!-- END LOGIN-BUTTON -->
+      </form>
+      <!-- END FORM -->
+    </div>
+  </div>
+</p-dialog>

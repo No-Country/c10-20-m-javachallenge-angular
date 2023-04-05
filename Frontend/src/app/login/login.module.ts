@@ -8,6 +8,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { SinginFormComponent } from './components/singin-form/singin-form.component';
+import { SingupFormComponent } from './components/singup-form/singup-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SinginFormComponent } from './components/singin-form/singin-form.compon
     CategoriesComponent,
     RecommendedComponent,
     SinginFormComponent,
+    SingupFormComponent,
   ],
   imports: [CommonModule, LoginRoutingModule, SharedModule],
 })
