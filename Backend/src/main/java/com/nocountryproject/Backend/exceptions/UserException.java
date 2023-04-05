@@ -1,8 +1,8 @@
 package com.nocountryproject.Backend.exceptions;
 
-public class UserException extends Exception{
+public class UserException extends RuntimeException{
 
     public UserException(String msg) {
-        super("messege");
+        super(msg);
     }
 }

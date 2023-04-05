@@ -7,6 +7,8 @@ import lombok.Setter;
 import com.nocountryproject.Backend.persistence.entity.Category;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @Entity
@@ -17,7 +19,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany
-    private Category idCategory;
+    private List<Category> idCategory = new ArrayList<>();
     private String title;
     private String author;
     private String isbn; //unique book identifier

@@ -20,6 +20,7 @@ public class UserInDTOToUser implements IMapper<UserInDTO, User>{
         user.setEmail(in.getEmail());
         user.setAddress(in.getAddress());
         user.setTelephone(in.getTelephone());
+        user.setPassword(in.getPassword());
 
         return user;
     }
