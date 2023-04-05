@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PatchMapping
+    @PostMapping
     public User createUser(@RequestBody UserInDTO userInDTO){
         return this.userService.createUser(userInDTO);
     }
