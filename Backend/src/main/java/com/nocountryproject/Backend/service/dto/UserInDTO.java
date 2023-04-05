@@ -1,9 +1,13 @@
 package com.nocountryproject.Backend.service.dto;
 
 import com.nocountryproject.Backend.persistence.entity.Role;
-import lombok.Data;
+import lombok.*;
+import org.springframework.stereotype.Service;
 
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class UserInDTO {
 
     private String name;
