@@ -78,4 +78,13 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByEmail(email).orElseThrow( () -> new UserException("USER NOT FOUND"));
         return principalFromUser.map(user);
     }
+
+    public User findByEmail(String email) throws UserException {
+        Optional<User> optionalUser = userRepository.findByEmail(email);
+        if (optionalUser.isEmpty()){
+            throw new UserException("USER NOT FOUND");
+        } else {
+            return optionalUser.get();
+        }
+    }
 }
