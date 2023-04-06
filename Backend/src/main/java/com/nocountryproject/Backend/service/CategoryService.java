@@ -43,5 +43,16 @@ public class CategoryService {
         this.repository.deleteById(id);
     }
 
+    public List<Category> findByType(String type){
+        List<Category> listType = this.repository.findByType(type);
+
+        if(listType.isEmpty()){
+            throw new BookExceptions("Type not found.", HttpStatus.NOT_FOUND);
+        }
+        return listType;
+    }
+
+
+
 
 }

@@ -26,7 +26,7 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<Category> findAllBooks(){
+    public List<Category> findAllCategories(){
         return this.categoryService.findAll();
     }
 
@@ -34,5 +34,10 @@ public class CategoryController {
     public ResponseEntity<Void> delete(@PathVariable("id") Long id){
         this.categoryService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{type}")
+    public List<Category> findByType(@PathVariable String type){
+        return this.categoryService.findByType(type);
     }
 }
