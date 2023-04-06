@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -38,5 +39,10 @@ public class UserController {
     @PutMapping("/{id}")
     public User updateUser(@RequestBody UserInDTO userInDTO, @PathVariable Long id) throws UserException {
         return this.userService.updateUser(userInDTO, id);
+    }
+
+    @GetMapping("/{email}")
+    public User findByEmail(@PathVariable String email) {
+        return this.userService.findByEmail(email);
     }
 }
