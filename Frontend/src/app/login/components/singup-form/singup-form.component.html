@@ -3,6 +3,7 @@
   [modal]="true"
   [draggable]="false"
   [resizable]="false"
+  (onHide)="form.reset()"
 >
   <div
     class="login-container flex justify-content-center align-items-center bg-primary-500"
@@ -17,52 +18,85 @@
         <h3 class="m-3">Crear Cuenta</h3>
       </div>
       <!-- END FORM-HEADER-->
-      <form class="flex flex-column gap-4">
+      <form class="form flex flex-column gap-4" [formGroup]="form">
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>Nombre</label>
-            <input pInputText placeholder="Ingresa tu nombre" />
+            <label>* Nombre</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu nombre"
+              formControlName="name"
+            />
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>DNI</label>
-            <input pInputText placeholder="Ingresa tu DNI" />
+            <label>* Apellido</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu apellido"
+              formControlName="lastname"
+            />
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>Email</label>
-            <input pInputText placeholder="Ingresa tu email" />
+            <label>* DNI</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu DNI"
+              formControlName="dni"
+            />
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>Contraseña</label>
+            <label>* Email</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu email"
+              formControlName="email"
+            />
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="flex flex-column gap-2 w-full">
+            <label>* Contraseña</label>
             <p-password
               placeholder="Ingresa tu contraseña"
               [toggleMask]="true"
               [feedback]="false"
+              formControlName="password"
             ></p-password>
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>Teléfono</label>
-            <input pInputText placeholder="Ingresa tu teléfono" />
+            <label>* Teléfono</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu teléfono"
+              formControlName="telephone"
+            />
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>Domicilio</label>
-            <input pInputText placeholder="Ingresa tu domicilio" />
+            <label>* Domicilio</label>
+            <input
+              pInputText
+              placeholder="Ingresa tu domicilio"
+              formControlName="address"
+            />
           </div>
         </div>
         <!-- END INPUTGROUP -->
         <p-button
           label="Registrarse"
           styleClass="p-button-raised"
+          (onClick)="onRegisterUser()"
           [style]="{ width: '100%' }"
+          [disabled]="form.invalid"
         ></p-button>
         <!-- END LOGIN-BUTTON -->
       </form>

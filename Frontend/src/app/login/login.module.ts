@@ -20,5 +20,6 @@ import { SingupFormComponent } from './components/singup-form/singup-form.compon
     SingupFormComponent,
   ],
   imports: [CommonModule, LoginRoutingModule, SharedModule],
+  providers: [],
 })
 export class LoginModule {}
