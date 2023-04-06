@@ -3,6 +3,7 @@ package com.nocountryproject.Backend.controller;
 import com.nocountryproject.Backend.security.jwt.JWTResponse;
 import com.nocountryproject.Backend.service.AuthService;
 import com.nocountryproject.Backend.service.dto.LoginUserDTO;
+import com.nocountryproject.Backend.service.dto.MessageDTO;
 import com.nocountryproject.Backend.service.dto.UserInDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +33,8 @@ public class AuthController {
     @PostMapping(value = "/signup")
     public ResponseEntity<?> signup(@RequestBody final UserInDTO dto){
         if(Objects.isNull(authService.signup(dto))){
-            return ResponseEntity.badRequest().body("Email ya registrado");
+            return ResponseEntity.badRequest().body(new MessageDTO("Email ya registrado"));
         }
-        return ResponseEntity.ok("Cuenta creada exitosamente");
+        return ResponseEntity.ok(new MessageDTO("Cuenta creada exitosamente"));
     }
 }

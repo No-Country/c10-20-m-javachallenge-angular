@@ -1,8 +1,8 @@
-<app-header class="header"></app-header>
 <div class="container">
   <app-hero></app-hero>
   <app-categories class="categories"></app-categories>
   <app-recommended></app-recommended>
 </div>
-<app-singin-form></app-singin-form>
-<app-singup-form></app-singup-form>
+<app-singin-form (loginUser)="onLoginUser($event)"></app-singin-form>
+<app-singup-form (user)="onRegisterUser($event)"></app-singup-form>
+<p-toast></p-toast>

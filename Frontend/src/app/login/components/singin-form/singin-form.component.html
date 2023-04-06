@@ -3,6 +3,7 @@
   [modal]="true"
   [draggable]="false"
   [resizable]="false"
+  (onHide)="form.reset()"
 >
   <div
     class="login-container flex justify-content-center align-items-center bg-primary-500"
@@ -28,11 +29,15 @@
         </p-divider>
       </div>
       <!-- END FORM-HEADER-->
-      <form class="flex flex-column gap-4">
+      <form class="flex flex-column gap-4" [formGroup]="form">
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
             <label>Email</label>
-            <input pInputText placeholder="Ingresa tu dirección email" />
+            <input
+              pInputText
+              placeholder="Ingresa tu dirección email"
+              formControlName="email"
+            />
           </div>
         </div>
         <!-- END INPUTGROUP -->
@@ -43,13 +48,17 @@
               placeholder="Ingresa tu contraseña"
               [toggleMask]="true"
               [feedback]="false"
+              formControlName="password"
             ></p-password>
           </div>
         </div>
         <!-- END INPUTGROUP -->
         <div class="flex justify-content-between">
           <div class="keep-sing-in flex gap-1 align-items-center">
-            <p-triStateCheckbox></p-triStateCheckbox>
+            <p-checkbox
+              [binary]="true"
+              formControlName="rememberMe"
+            ></p-checkbox>
             <span>Mantenerme conectado</span>
           </div>
           <div class="recover-password">
@@ -64,6 +73,7 @@
           label="Ingresar"
           styleClass="p-button-raised"
           [style]="{ width: '100%' }"
+          (onClick)="onLogin()"
         ></p-button>
         <!-- END LOGIN-BUTTON -->
 
