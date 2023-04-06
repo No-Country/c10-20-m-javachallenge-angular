@@ -34,6 +34,11 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{id}")
+    public Book findById(@PathVariable("id") Long id){
+       return this.bookService.findById(id);
+    }
+
    @GetMapping("/title/{title}")
     public List<Book> findBooksByTitle(@PathVariable("title") String title){
        return this.bookService.findByTitle(title);
@@ -43,6 +48,12 @@ public class BookController {
     public List<Book> findBooksByAuthor(@PathVariable String author){
         return this.bookService.findByAuthor(author);
     }
+
+    @GetMapping("/books/{idCategory}")
+    public List<Book> findBooksByIdCategory(@PathVariable("idCategory") Long idCategory ){
+        return this.bookService.findByIdCategory(idCategory);
+    }
+
 
 
 

@@ -40,6 +40,16 @@ public class BookService {
         this.repository.deleteById(id);
     }
 
+    public Book findById(Long id){
+        Optional<Book> optionalBook = this.repository.findById(id);
+
+        if(optionalBook.isEmpty()){
+            throw new BookExceptions("Book not found.", HttpStatus.NOT_FOUND);
+        }
+
+        return optionalBook.get();
+    }
+
     public List<Book> findByTitle(String title){
        List<Book> listBook = this.repository.findByTitle(title);
 
@@ -51,6 +61,15 @@ public class BookService {
 
     public List<Book> findByAuthor(String author){
         List<Book> listBook = this.repository.findByAuthor(author);
+
+        if(listBook.isEmpty()){
+            throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
+        }
+        return listBook;
+    }
+
+    public List<Book> findByIdCategory(Long id){
+        List<Book> listBook = this.repository.findByIdCategory(id);
 
         if(listBook.isEmpty()){
             throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
