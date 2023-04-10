@@ -16,6 +16,7 @@ public class Reservation {
     private Long id;
     private Long idUser;
     private Long idBook;
+    @GeneratedValue(strategy = GenerationType.UUID)
     private Long orderNumber;
     private LocalDateTime reservationDate;
     private LocalDateTime expirationDate;
