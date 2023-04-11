@@ -44,11 +44,6 @@ public class BookController {
        return this.bookService.findByTitle(title);
     }
 
-    @GetMapping("/author/{author}")
-    public List<Book> findBooksByAuthor(@PathVariable String author){
-        return this.bookService.findByAuthor(author);
-    }
-
     @GetMapping("/books/{idCategory}")
     public List<Book> findBooksByIdCategory(@PathVariable("idCategory") Long idCategory ){
         return this.bookService.findByIdCategory(idCategory);
