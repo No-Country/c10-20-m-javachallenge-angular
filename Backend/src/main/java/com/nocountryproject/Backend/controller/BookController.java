@@ -48,9 +48,9 @@ public class BookController {
         return this.bookService.findByAuthor(author);
     }
 
-    @GetMapping
-    public List<Book> listByAlta(){
-        return this.bookService.listByAlta();
+    @GetMapping("/{altas}")
+    public List<Book> findByAlta(){
+        return this.bookService.findByAlta();
     }
 
 }
