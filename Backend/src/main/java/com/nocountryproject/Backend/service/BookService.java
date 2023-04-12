@@ -51,16 +51,7 @@ public class BookService {
     }
 
     public List<Book> findByTitle(String title){
-       List<Book> listBook = this.repository.findByTitle(title);
-
-        if(listBook.isEmpty()){
-            throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
-        }
-        return listBook;
-    }
-
-    public List<Book> findByAuthor(String author){
-        List<Book> listBook = this.repository.findByAuthor(author);
+        List<Book> listBook = this.repository.findByTitle(title);
 
         if(listBook.isEmpty()){
             throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
@@ -76,6 +67,7 @@ public class BookService {
         }
         return listBook;
     }
+
 
 
 
