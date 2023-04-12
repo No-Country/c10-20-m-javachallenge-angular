@@ -7,6 +7,7 @@ import com.nocountryproject.Backend.persistence.entity.Book;
 import com.nocountryproject.Backend.persistence.entity.Category;
 import com.nocountryproject.Backend.persistence.repository.CategoryRepository;
 import com.nocountryproject.Backend.service.dto.CategoryInDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class CategoryService {
     private final CategoryRepository repository;
     private final CategoryInDTOToCategory mapper;
 
+    @Autowired
     public CategoryService(CategoryRepository repository, CategoryInDTOToCategory mapper) {
         this.repository = repository;
         this.mapper = mapper;

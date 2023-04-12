@@ -5,6 +5,7 @@ import com.nocountryproject.Backend.mapper.BookInDTOToBook;
 import com.nocountryproject.Backend.persistence.entity.Book;
 import com.nocountryproject.Backend.persistence.repository.BookRepository;
 import com.nocountryproject.Backend.service.dto.BookInDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ public class BookService {
     private final BookRepository repository;
     private final BookInDTOToBook mapper;
 
+    @Autowired
     public BookService(BookRepository repository, BookInDTOToBook mapper) {
         this.repository = repository;
         this.mapper = mapper;
@@ -58,7 +60,9 @@ public class BookService {
         return listBook;
     }
 
-
-
-
+    public List<Book> listByAlta(){
+        boolean availability = true;
+        List<Book> listBook = this.repository.listByAlta(availability);
+        return listBook;
+    }
 }

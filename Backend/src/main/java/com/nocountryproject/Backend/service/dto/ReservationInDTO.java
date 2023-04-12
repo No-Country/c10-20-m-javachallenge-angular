@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @ToString
@@ -14,6 +12,5 @@ import java.time.LocalDateTime;
 public class ReservationInDTO {
     private Long idUser;
     private Long idBook;
-    private LocalDateTime reservationDate;
-    private LocalDateTime expirationDate;
+    private String observation;
 }

@@ -6,6 +6,8 @@ import com.nocountryproject.Backend.service.BookService;
 import com.nocountryproject.Backend.service.CategoryService;
 import com.nocountryproject.Backend.service.dto.BookInDTO;
 import com.nocountryproject.Backend.service.dto.CategoryInDTO;
+import org.hibernate.internal.build.AllowPrintStacktrace;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService categoryService;
 
+    @Autowired
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
