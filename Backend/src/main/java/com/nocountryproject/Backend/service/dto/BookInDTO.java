@@ -9,8 +9,8 @@ import lombok.*;
 public class BookInDTO {
     private String title;
     private String author;
-    private Long idCategory;
+    private String isbn;
     private String publisherHouse;
+    private Integer yearOfPublication;
     private String summary;
-    private boolean availability;
 }

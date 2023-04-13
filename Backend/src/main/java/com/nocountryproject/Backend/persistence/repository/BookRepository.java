@@ -14,11 +14,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByAuthor(String author);
     List<Book> findByIdCategory(Long id);
 
-    @Modifying
-    @Query("UPDATE Book SET AVAILABILITY=false WHERE id=:id") // libro NO DISPONIBLE
-    public void changeAvailabilityFalse(@Param("id")Long id);
+    List<Book> findByAlta(Boolean availability);
 
-    @Modifying
-    @Query("UPDATE Book SET AVAILABILITY=true WHERE id=:id") //libro DISPONIBLE
-    public void changeAvailabilityTrue(Long idBook);
+    //List<Book> findByCant();
 }
