@@ -1,55 +1,51 @@
-<div class="surface-300 pt-8 pb-6">
-  <h3 class="text-center text-7xl m-2 font-bold opacity-50">Los más leídos</h3>
-  <div class="grid gap-3 justify-content-center m-0">
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
+<div class="p-2">
+  <p-tabMenu
+    [model]="tabMenuItems"
+    [activeItem]="activeItem"
+    (activeItemChange)="activeItem = $event"
+  ></p-tabMenu>
+  <h3 class="text-center text-6xl mt-6 font-bold text-0">
+    {{ activeItem.label ?? searchTitle }}
+  </h3>
+  <div class="m-auto w-7">
+    <p-dataView #dv [value]="books" layout="grid">
+      <ng-template let-book pTemplate="gridItem">
+        <div class="col-12 sm:col-6 lg:col-12 xl:col-3 p-2">
+          <div class="p-1 flex flex-column gap-2">
+            <img
+              class="w-full block xl:block mx-auto border-round"
+              src="./assets/images/no-image.svg"
+              alt=""
+            />
+            <span class="text-0 font-bold">{{ book.title }}</span>
+            <span class="text-0"
+              >Categoria: {{ getCategory(book.idCategory) | uppercase }}</span
+            >
+            <div class="flex gap-3">
+              <p-button
+                label="Ver más"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                styleClass="p-button-sm p-button-text"
+                [style]="{ color: '#fff' }"
+                (onClick)="onShowBook(book)"
+              ></p-button>
+              <div
+                class="flex align-items-center justify-content-between text-0 flex-grow-1"
+              >
+                <span>0,0</span>
+                <span class="pi pi-star"></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
-    <p-card header="Learning Spring Boot 3">
-      <ng-template pTemplate="header">
-        <img alt="Card" src="./assets/images/libro.jpeg" />
-      </ng-template>
-    </p-card>
+    </p-dataView>
   </div>
 </div>
+<p-toast></p-toast>
+<app-book-view
+  [book]="bookToShow"
+  [visible]="openBookView"
+  (close)="openBookView = $event"
+></app-book-view>

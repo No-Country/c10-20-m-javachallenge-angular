@@ -40,25 +40,34 @@ public class BookService {
         this.repository.deleteById(id);
     }
 
-    public List<Book> findByTitle(String title){
-       List<Book> listBook = this.repository.findByTitle(title);
+    public Book findById(Long id){
+        Optional<Book> optionalBook = this.repository.findById(id);
 
-        if(listBook.isEmpty()){
-            throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
+        if(optionalBook.isEmpty()){
+            throw new BookExceptions("Book not found.", HttpStatus.NOT_FOUND);
         }
-        return listBook;
+
+        return optionalBook.get();
+    }
+
+    public List<Book> findByTitle(String title){
+
+        return this.repository.findByTitle(title);
     }
 
     public List<Book> findByAuthor(String author){
-        List<Book> listBook = this.repository.findByAuthor(author);
+        return this.repository.findByAuthor(author);
+
+    }
+
+    public List<Book> findByIdCategory(Long id){
+        List<Book> listBook = this.repository.findByIdCategory(id);
 
         if(listBook.isEmpty()){
             throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
         }
         return listBook;
     }
-
-
 
 
 }

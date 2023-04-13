@@ -3,7 +3,6 @@ package com.nocountryproject.Backend.service;
 import com.nocountryproject.Backend.exceptions.BookExceptions;
 import com.nocountryproject.Backend.exceptions.CategoryException;
 import com.nocountryproject.Backend.mapper.CategoryInDTOToCategory;
-import com.nocountryproject.Backend.persistence.entity.Book;
 import com.nocountryproject.Backend.persistence.entity.Category;
 import com.nocountryproject.Backend.persistence.repository.CategoryRepository;
 import com.nocountryproject.Backend.service.dto.CategoryInDTO;
@@ -42,6 +41,27 @@ public class CategoryService {
 
         this.repository.deleteById(id);
     }
+
+    public List<Category> findByType(String type){
+        List<Category> listType = this.repository.findByType(type);
+
+        if(listType.isEmpty()){
+            throw new BookExceptions("Type not found.", HttpStatus.NOT_FOUND);
+        }
+        return listType;
+    }
+
+    public Optional<Category> findById(Long id){
+        Optional<Category> optionalCategory= this.repository.findById(id);
+
+        if(optionalCategory.isEmpty()){
+            throw new CategoryException("Category not found.", HttpStatus.NOT_FOUND);
+        }
+
+        return optionalCategory;
+    }
+
+
 
 
 }

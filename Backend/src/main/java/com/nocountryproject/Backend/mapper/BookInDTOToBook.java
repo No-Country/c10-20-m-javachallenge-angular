@@ -11,10 +11,12 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
         Book book = new Book();
         book.setTitle(in.getTitle());
         book.setAuthor(in.getAuthor());
+        book.setIdCategory(in.getIdCategory());
         book.setIsbn("8145563295-0");
         book.setPublisherHouse(in.getPublisherHouse());
         book.setYearOfPublication(1997);
-        book.setAvailability(false);
+        book.setSummary(in.getSummary());
+        book.setAvailability(true);
         return book;
     }
 }
