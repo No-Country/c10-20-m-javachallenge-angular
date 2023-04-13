@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class ReservationInDTO {
+
     private Long userDni;
     private String userName;
     private Long bookId;
