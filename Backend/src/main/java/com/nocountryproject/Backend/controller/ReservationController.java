@@ -1,10 +1,15 @@
 package com.nocountryproject.Backend.controller;
 
 import com.nocountryproject.Backend.persistence.entity.Reservation;
+import com.nocountryproject.Backend.persistence.entity.ReservationStatus;
 import com.nocountryproject.Backend.service.ReservationService;
 import com.nocountryproject.Backend.service.dto.ReservationInDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservation")
@@ -22,8 +27,25 @@ public class ReservationController {
         return this.reservationService.makeReservation(reservationInDTO);
     }
 
-    @GetMapping("/{id}")
-    public void returnBook(@PathVariable("id") Long id) {
+    @GetMapping
+    public List<Reservation> findAll(){
+        return this.reservationService.findAll();
+    }
+
+    @GetMapping("/{status}")
+    public List<Reservation> findByStatus(@PathVariable ReservationStatus status){
+        return this.reservationService.findByStatus(status);
+    }
+
+    @PutMapping("/change")
+    public ResponseEntity<Void> changeReservation(@PathVariable Long id){
+        this.reservationService.changeReservation(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/return")
+    public ResponseEntity<Void> returnBook(@PathVariable Long id) {
         this.reservationService.returnBook(id);
+        return ResponseEntity.noContent().build();
     }
 }
