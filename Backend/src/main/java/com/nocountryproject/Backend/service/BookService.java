@@ -51,11 +51,13 @@ public class BookService {
     }
 
     public List<Book> findByTitle(String title){
+
         return this.repository.findByTitle(title);
     }
 
     public List<Book> findByAuthor(String author){
         return this.repository.findByAuthor(author);
+
     }
 
     public List<Book> findByIdCategory(Long id){
@@ -66,4 +68,6 @@ public class BookService {
         }
         return listBook;
     }
+
+
 }
