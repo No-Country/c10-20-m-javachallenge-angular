@@ -10,7 +10,6 @@ import com.nocountryproject.Backend.persistence.repository.ReservationRepository
 import com.nocountryproject.Backend.service.dto.ReservationInDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -38,9 +37,8 @@ public class ReservationService {
 
     public Reservation makeReservation(ReservationInDTO reservationInDTO){
         Reservation reservation = mapper.map(reservationInDTO);
-
-        Optional<Book> optionalBook = bookRepository.findById(reservation.getIdBook());
-        optionalBook.get().setAvailability(false);
+        Optional<Book> book = bookRepository.findById(reservation.getIdBook());
+        book.get().setAvailability(false);
 
         return this.reservationRepository.save(reservation);
     }
@@ -49,21 +47,24 @@ public class ReservationService {
         return this.reservationRepository.findAll();
     }
 
-    public List<Reservation> findByStatus(ReservationStatus status){
-        return this.reservationRepository.findByStatus(status);
+    public List<Reservation> listByStatus(ReservationStatus status){
+        return this.reservationRepository.listByStatus(status);
     }
 
-    public void changeReservation(Long id) {
+    public Reservation changeReservation(Long id) {  //esto lo hace el administrador cuando se llevan el libro
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
         if (optionalReservation.isEmpty()){
             throw new ReservationExceptions("RESERVATION NOT FOUND");
         }
-        optionalReservation.get().setStatus(ReservationStatus.PICKED_UP);
+        Reservation reservation = optionalReservation.get();
+        reservation.setStatus(ReservationStatus.PICKED_UP);
+        reservationRepository.save(reservation);
+        return reservation;
     }
 
-    public void returnBook(Long id) throws ReservationExceptions{
+    public void returnBook(Long id) throws ReservationExceptions { //esto lo hace el administrador cuando devuelven el libro
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
-        if (optionalReservation.isEmpty()){
+        if (optionalReservation.isEmpty()) {
             throw new ReservationExceptions("RESERVATION NOT FOUND");
         }
         optionalReservation.get().setStatus(ReservationStatus.RETURNED);
@@ -71,19 +72,27 @@ public class ReservationService {
         book.get().setAvailability(true);
     }
 
-    @Scheduled(cron = "0 0 7 * * MON-FRI")
+    //@Scheduled(cron = "0 0 8 * * MON-FRI")
     public void canselReservation(){
-        List<Reservation> reservationsList = reservationRepository.findAll();
-        for(Reservation reservation : reservationsList){
+        List<Reservation> reservationList = reservationRepository.findAll();
 
+        for(Reservation reservation : reservationList){
             Period period = Period.between(reservation.getReservationDate(), LocalDate.now());
-
-            if (period.getDays()>5 && reservation.getStatus() == ReservationStatus.ON_HOLD){
+            if (period.getDays()>5 && reservation.getStatus() == ReservationStatus.ON_HOLD) {
                 reservation.setStatus(ReservationStatus.NOT_PICKED_UP);
-                Optional<Book> optionalBook = bookRepository.findById(reservation.getIdBook());
-                optionalBook.get().setAvailability(true);
+                Optional<Book> book = bookRepository.findById(reservation.getId());
+                book.get().setAvailability(true);
             }
-            if (period.getDays()>30 && reservation.getStatus() == ReservationStatus.PICKED_UP){
+        }
+    }
+
+    //@Scheduled(cron = "0 0 8 * * MON-FRI")
+    public void lateReturn(){
+        List<Reservation> reservationsList = reservationRepository.findAll();
+
+        for (Reservation reservation : reservationsList) {
+            Period period = Period.between(reservation.getReservationDate(), LocalDate.now());
+            if (period.getDays() > 30 && reservation.getStatus() == ReservationStatus.PICKED_UP){
                 reservation.setStatus(ReservationStatus.LATE);
             }
         }
