@@ -1,0 +1,32 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50%' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onClose()"
+>
+  <div *ngIf="book" class="flex">
+    <div class="w-full">
+      <img src="./assets/images/no-image.svg" alt="" class="w-full" />
+    </div>
+    <div class="w-9 p-4 flex flex-column">
+      <div class="mt-4">
+        <p class="text-3xl font-bold">{{ book.title }}</p>
+        <p class=""><strong>Autor:</strong> {{ book.author }}</p>
+        <p class="">
+          <strong>Categoria:</strong> {{ category.type | uppercase }}
+        </p>
+        <p class=""><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <p class=""><strong>Descripcion:</strong> <br />{{ book.summary }}</p>
+      </div>
+      <div class="mt-auto">
+        <p-button
+          label="Reservar Ahora"
+          styleClass="p-button-raised p-button-help"
+          [style]="{ width: '100%' }"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</p-dialog>

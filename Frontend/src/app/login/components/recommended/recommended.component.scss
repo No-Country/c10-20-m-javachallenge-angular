@@ -1,5 +1,23 @@
 :host ::ng-deep {
-  .p-card {
-    width: fit-content !important;
+  .p-tabmenu {
+    width: min-content;
+    margin: 0 auto;
+    .p-tabmenu-nav {
+      background-color: transparent;
+      .p-tabmenuitem {
+        .p-menuitem-link {
+          background: transparent;
+          color: white;
+        }
+      }
+      .p-tabmenuitem.p-highlight .p-menuitem-link {
+        border-color: var(--purple);
+      }
+    }
+  }
+  .p-dataview {
+    .p-dataview-content {
+      background-color: transparent;
+    }
   }
 }

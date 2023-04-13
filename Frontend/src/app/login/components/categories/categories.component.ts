@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Categorie } from 'src/app/shared/models/categorie.model';
-import { environment } from 'src/environments/environment';
+import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
   selector: 'app-categories',
@@ -10,19 +8,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-  categories: Categorie[] = [];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { };
-
-  getCategories(): Observable<Categorie[]> {
-    return this.http.get<Categorie[]>(`${environment.APIUrl}/category`);
-  }
-
-  ngOnInit(): void {
-    this.getCategories().subscribe(dataCategory => {
-
-      this.categories = dataCategory;
-    })
-
-  }
+  ngOnInit(): void {}
 }
