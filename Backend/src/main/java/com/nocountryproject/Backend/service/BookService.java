@@ -60,9 +60,9 @@ public class BookService {
         return listBook;
     }
 
-    public List<Book> findByAlta(){
+    public List<Book> listByAlta(){
         boolean availability = true;
-        List<Book> listBook = this.repository.findByAlta(availability);
+        List<Book> listBook = this.repository.listByAlta(availability);
         return listBook;
     }
 }

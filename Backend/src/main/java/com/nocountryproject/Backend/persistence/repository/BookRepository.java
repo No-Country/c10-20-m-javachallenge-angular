@@ -23,5 +23,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query(value = "UPDATE Book SET AVAILABILITY=true WHERE ID=:id") //libro DISPONIBLE
     public void changeAvailabilityTrue(Long idBook);*/
 
-    List<Book> findByAlta(Boolean availability);
+    List<Book> listByAlta(Boolean availability);
 }

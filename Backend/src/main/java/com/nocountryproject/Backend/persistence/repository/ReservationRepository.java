@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    //List<Reservation> findByOrderNumber(Long id);
+    List<Reservation> findByOrderNumber(Long id);
 
-    List<Reservation> findByStatus(ReservationStatus status);
+    List<Reservation> listByStatus(ReservationStatus status);
 
 }
