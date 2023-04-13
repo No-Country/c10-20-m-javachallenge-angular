@@ -15,7 +15,8 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
         book.setIsbn("8145563295-0");
         book.setPublisherHouse(in.getPublisherHouse());
         book.setYearOfPublication(1997);
-        book.setAvailability(false);
+        book.setSummary(in.getSummary());
+        book.setAvailability(true);
         return book;
     }
 }
