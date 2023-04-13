@@ -15,4 +15,12 @@ export class BookService {
   public findAll(): Observable<Book[]> {
     return this.http.get<Book[]>(this.endpoint);
   }
+
+  public findByCategory(categoryId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.endpoint}/books/${categoryId}`);
+  }
+
+  public findById(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.endpoint}/${id}`);
+  }
 }

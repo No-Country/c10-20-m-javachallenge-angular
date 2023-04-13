@@ -15,7 +15,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { ToastModule } from 'primeng/toast';
 import { CheckboxModule } from 'primeng/checkbox';
 import { MenuModule } from 'primeng/menu';
-
+import { DataViewModule } from 'primeng/dataview';
 @NgModule({
   imports: [
     ToolbarModule,
@@ -42,6 +42,7 @@ import { MenuModule } from 'primeng/menu';
     ToastModule,
     CheckboxModule,
     MenuModule,
+    DataViewModule,
   ],
 })
 export class PrimengModule {}

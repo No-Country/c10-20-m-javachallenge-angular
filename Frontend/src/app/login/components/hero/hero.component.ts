@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Categorie } from 'src/app/shared/models/categorie.model';
+import { Category } from 'src/app/shared/models/category.model';
+import { CategoryService } from 'src/app/shared/services/category.service';
 
 @Component({
   selector: 'app-hero',
@@ -7,14 +8,20 @@ import { Categorie } from 'src/app/shared/models/categorie.model';
   styleUrls: ['./hero.component.scss'],
 })
 export class HeroComponent implements OnInit {
-  categories: Categorie[] = [];
+  categories: Category[] = [];
+
+  constructor(private categoryService: CategoryService) {}
   ngOnInit(): void {
-    this.categories = [
-      { id: 1, type: 'accion' },
-      { id: 2, type: 'aventura' },
-      { id: 3, type: 'misterio' },
-      { id: 4, type: 'historia' },
-    ];
-    this.categories.forEach((c) => (c.type = c.type.toUpperCase()));
+    this.findAllCategories();
+  }
+
+  private findAllCategories(): void {
+    this.categoryService.findAll().subscribe({
+      next: (resp) =>
+        (this.categories = resp.map((c) => {
+          c.type = c.type.toUpperCase();
+          return c;
+        })),
+    });
   }
 }

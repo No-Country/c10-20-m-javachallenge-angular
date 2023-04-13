@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Categorie } from 'src/app/shared/models/categorie.model';
+import { Category } from 'src/app/shared/models/category.model';
 
 @Component({
   selector: 'app-categories',
@@ -7,7 +7,7 @@ import { Categorie } from 'src/app/shared/models/categorie.model';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-  categories: Categorie[] = [];
+  categories: Category[] = [];
   ngOnInit(): void {
     this.categories = [
       { id: 1, type: 'accion' },
