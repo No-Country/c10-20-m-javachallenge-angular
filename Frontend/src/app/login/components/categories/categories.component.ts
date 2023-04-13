@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Categorie } from 'src/app/shared/models/categorie.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-categories',
@@ -8,16 +11,18 @@ import { Categorie } from 'src/app/shared/models/categorie.model';
 })
 export class CategoriesComponent implements OnInit {
   categories: Categorie[] = [];
+
+  constructor(private http: HttpClient) { };
+
+  getCategories(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(`${environment.APIUrl}/category`);
+  }
+
   ngOnInit(): void {
-    this.categories = [
-      { id: 1, type: 'accion' },
-      { id: 2, type: 'aventura' },
-      { id: 3, type: 'misterio' },
-      { id: 4, type: 'historia' },
-      { id: 5, type: 'terror' },
-      { id: 6, type: 'anime' },
-      { id: 7, type: 'ciencia ficcion' },
-    ];
-    this.categories.forEach((c) => (c.type = c.type.toLowerCase()));
+    this.getCategories().subscribe(dataCategory => {
+
+      this.categories = dataCategory;
+    })
+
   }
 }
