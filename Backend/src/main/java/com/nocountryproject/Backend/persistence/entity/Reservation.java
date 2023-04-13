@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter @Setter
 @Entity
@@ -18,8 +18,6 @@ public class Reservation {
     private Long idBook;
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long orderNumber;
-    private LocalDate reservationDate;
-    private LocalDate expirationDate;
-    private String observation;
-    private ReservationStatus status;
+    private LocalDateTime reservationDate;
+    private LocalDateTime expirationDate;
 }

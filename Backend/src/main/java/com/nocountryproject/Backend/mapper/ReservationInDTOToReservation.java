@@ -14,7 +14,7 @@ public class ReservationInDTOToReservation implements IMapper<ReservationInDTO, 
         reservation.setIdUser(reservation.getIdUser());
         reservation.setIdBook(reservation.getIdBook());
         reservation.setReservationDate(reservation.getReservationDate().now());
-        reservation.setExpirationDate(reservation.getReservationDate().plusDays(30));
+        reservation.setReservationDate(reservation.getReservationDate().plusDays(30));
         return reservation;
     }
 }

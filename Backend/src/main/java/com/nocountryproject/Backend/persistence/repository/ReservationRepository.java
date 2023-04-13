@@ -1,15 +1,17 @@
 package com.nocountryproject.Backend.persistence.repository;
 
 import com.nocountryproject.Backend.persistence.entity.Reservation;
-import com.nocountryproject.Backend.persistence.entity.ReservationStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    List<Reservation> findByOrderNumber(Long id);
+    List<Reservation> findByOrderNumber(Long orderNumber);
 
-    List<Reservation> listByStatus(ReservationStatus status);
+    List<Reservation> findByIdUser(Long id);
+
+    List<Reservation> findByIdBook(Long id);
 
 }

@@ -3,7 +3,6 @@ package com.nocountryproject.Backend.controller;
 import com.nocountryproject.Backend.persistence.entity.Reservation;
 import com.nocountryproject.Backend.service.ReservationService;
 import com.nocountryproject.Backend.service.dto.ReservationInDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,7 +11,6 @@ public class ReservationController {
 
     private final ReservationService reservationService;
 
-    @Autowired
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
     }

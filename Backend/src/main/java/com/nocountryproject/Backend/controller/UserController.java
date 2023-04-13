@@ -4,7 +4,6 @@ import com.nocountryproject.Backend.exceptions.UserException;
 import com.nocountryproject.Backend.persistence.entity.User;
 import com.nocountryproject.Backend.service.UserService;
 import com.nocountryproject.Backend.service.dto.UserInDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
