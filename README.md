@@ -15,7 +15,7 @@ It also offers the librarian a dashboard to operate with the stock of books and 
 -   [@Caro Bejar](https://www.github.com/CaroBejar)
 -   [@SoleTancredi](https://www.github.com/SoleTancredi)
 -   [@Alex](https://www.github.com/MicaelaCacciatore)
--   [@Mica](https://www.github.com/)
+-   [@Mica](https://github.com/MicaelaCacciatore)
 -   [@Nico](https://www.github.com/)
 
 
