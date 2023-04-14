@@ -18,9 +18,9 @@ import { Category } from '../../models/category.model';
 })
 export class BookViewComponent implements OnChanges {
   @Input() visible = false;
-  @Input() book!: Book;
+  @Input() book: Book | undefined;
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
-  category!: Category;
+  category: Category | undefined;
 
   constructor(private categoryService: CategoryService) {}
 
@@ -34,11 +34,17 @@ export class BookViewComponent implements OnChanges {
     this.visible = false;
     this.close.emit(false);
   }
-  public setCategory(): void {
-    this.categoryService.findById(this.book.id!).subscribe({
-      next: (resp) => {
-        this.category = resp;
-      },
+
+  setCategory(): void {
+    if (!this.book) return;
+    if (!this.book.id) return;
+
+    const { idCategory }= this.book;
+
+    const responseCategory = this.categoryService.findById(idCategory);
+    
+    responseCategory.subscribe({
+      next: (category) => this.category = category,
     });
   }
 }
