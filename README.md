@@ -12,10 +12,10 @@ It also offers the librarian a dashboard to operate with the stock of books and 
 
 ## Authors
 
--   [@Caro](https://www.github.com/CaroBejar)
+-   [@CaroBejar](https://www.github.com/CaroBejar)
 -   [@SoleTancredi](https://www.github.com/SoleTancredi)
 -   [@Alex](https://www.github.com/)
--   [@Maca](https://www.github.com/)
+-   [@Mica](https://www.github.com/)
 -   [@Nico](https://www.github.com/)
 
 
