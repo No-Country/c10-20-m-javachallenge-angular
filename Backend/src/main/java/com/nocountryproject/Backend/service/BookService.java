@@ -8,6 +8,7 @@ import com.nocountryproject.Backend.service.dto.BookInDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,14 +70,16 @@ public class BookService {
         return listBook;
     }
 
-    public List<Book> findByAlta(){
-        boolean availability = true;
-        List<Book> listBook = this.repository.findByAlta(availability);
-        return listBook;
+    public List<Book> lastAdded(){
+        List<Book> books = this.repository.findAll();
+        Collections.sort(books, (Book a, Book b) -> a.getAlta().compareTo(b.getAlta()));
+        return books;
     }
 
-    /*public List<Book> findByCant(){
-        List<Book> books = this.repository.findByCant();
+    public List<Book> mostRead(){
+        List<Book> books = this.repository.findAll();
+        Collections.sort(books, (Book a, Book b) ->a.getCant().compareTo(b.getCant()));
+        Collections.reverse(books);
         return books;
-    }*/
+    }
 }
