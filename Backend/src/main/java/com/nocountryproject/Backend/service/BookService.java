@@ -62,7 +62,7 @@ public class BookService {
     }
 
     public List<Book> findByIdCategory(Long id){
-        List<Book> listBook = this.repository.findByIdCategory(id);
+        List<Book> listBook = this.repository.findByCategory(id);
 
         if(listBook.isEmpty()){
             throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);

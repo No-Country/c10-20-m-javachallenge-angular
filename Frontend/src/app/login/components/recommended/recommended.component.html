@@ -19,7 +19,7 @@
             />
             <span class="text-0 font-bold">{{ book.title }}</span>
             <span class="text-0"
-              >Categoria: {{ getCategory(book.idCategory) | uppercase }}</span
+              >Categoria: {{ getCategory(book.category.id) | uppercase }}</span
             >
             <div class="flex gap-3">
               <p-button

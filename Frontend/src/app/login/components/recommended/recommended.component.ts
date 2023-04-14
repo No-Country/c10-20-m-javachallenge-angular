@@ -77,8 +77,15 @@ export class RecommendedComponent implements OnInit {
   }
 
   public getCategory(id: number): string {
-    const { type } = this.categories.find((c) => c.id === id)!;
-    return type;
+
+    const category: Category | undefined = this.categories.find((c: Category) => c.id === id);
+
+    if (category !== undefined) {
+      return category.type;
+    }
+
+    return 'No se encontró una categoría para el id seleccionado';
+
   }
 
   private searchByCategory(): void {

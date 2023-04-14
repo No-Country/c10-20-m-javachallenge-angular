@@ -2,11 +2,11 @@ package com.nocountryproject.Backend.service.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @ToString
 @NoArgsConstructor
 public class BookInDTO {
+    private Long idCategory;
     private String title;
     private String author;
     private String isbn;

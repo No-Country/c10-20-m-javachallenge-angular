@@ -16,8 +16,9 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToMany
-    private List<Category> idCategory = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "id_category", nullable = false)
+    private Category category;
     private String title;
     private String author;
     private String isbn; //unique book identifier

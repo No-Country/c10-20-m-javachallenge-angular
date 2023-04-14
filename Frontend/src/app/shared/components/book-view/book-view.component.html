@@ -15,7 +15,7 @@
         <p class="text-3xl font-bold">{{ book.title }}</p>
         <p class=""><strong>Autor:</strong> {{ book.author }}</p>
         <p class="">
-          <strong>Categoria:</strong> {{ category.type | uppercase }}
+          <strong>Categoria:</strong> {{ category?.type | uppercase }}
         </p>
         <p class=""><strong>ISBN:</strong> {{ book.isbn }}</p>
         <p class=""><strong>Descripcion:</strong> <br />{{ book.summary }}</p>
