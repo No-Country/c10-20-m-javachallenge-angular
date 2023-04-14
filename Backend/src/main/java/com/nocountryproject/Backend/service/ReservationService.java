@@ -31,7 +31,7 @@ public class ReservationService {
 
 
     @Autowired
-    public ReservationService(ReservationRepository reservationRepository, ReservationInDTO mapper, BookRepository bookRepository) {
+    public ReservationService(ReservationRepository reservationRepository, ReservationInDTOToReservation mapper, BookRepository bookRepository) {
         this.reservationRepository = reservationRepository;
         this.mapper = mapper;
         this.bookRepository = bookRepository;

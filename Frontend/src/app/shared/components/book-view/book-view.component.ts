@@ -39,9 +39,9 @@ export class BookViewComponent implements OnChanges {
     if (!this.book) return;
     if (!this.book.id) return;
 
-    const { idCategory }= this.book;
+    const { id }= this.book.category;
 
-    const responseCategory = this.categoryService.findById(idCategory);
+    const responseCategory = this.categoryService.findById(id);
     
     responseCategory.subscribe({
       next: (category) => this.category = category,
