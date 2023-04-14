@@ -56,10 +56,10 @@ public class ReservationService {
     }
 
     public List<Book> listBookByUser(Long userDni){
-        List listBookByUser = new ArrayList();
-        reservationRepository.findByUserDni(userDni);
+        List<Book> listBookByUser = new ArrayList();
         for (Reservation reservation : reservationRepository.findByUserDni(userDni)){
-            listBookByUser.add(reservation.getBookId());
+            Optional<Book> book = bookRepository.findById(reservation.getBookId());
+            listBookByUser.add(book.get());
         }
         return listBookByUser;
     }

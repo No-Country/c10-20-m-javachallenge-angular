@@ -48,9 +48,14 @@ public class BookController {
         return this.bookService.findByAuthor(author);
     }
 
-    /*@GetMapping("/{altas}")
-    public List<Book> findByAlta(){
-        return this.bookService.findByAlta();
-    }*/
+    @GetMapping("/lastAdded")
+    public List<Book> lastAdded(){
+        return this.bookService.lastAdded();
+    }
+
+    @GetMapping("/mostRead")
+    public List<Book> mostRead(){
+        return this.bookService.mostRead();
+    }
 
 }
