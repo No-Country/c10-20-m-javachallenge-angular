@@ -43,4 +43,6 @@ public class CategoryController {
     public Optional<Category> findById(@PathVariable("id") Long id){
         return this.categoryService.findById(id);
     }
+
+
 }
