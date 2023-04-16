@@ -13,8 +13,11 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    //@OneToOne
+    private Long userId;
     private Long userDni;
     private String userName;
+    //@OneToOne
     private Long bookId;
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long orderNumber;
