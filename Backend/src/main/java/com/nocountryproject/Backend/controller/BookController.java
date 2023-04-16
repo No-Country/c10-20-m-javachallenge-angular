@@ -58,4 +58,8 @@ public class BookController {
         return this.bookService.mostRead();
     }
 
+    @GetMapping("/category")
+    public List<Book> findByCategory(Long id){
+        return this.bookService.findByIdCategory(id);
+    }
 }

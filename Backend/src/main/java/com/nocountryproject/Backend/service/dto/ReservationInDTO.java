@@ -12,7 +12,7 @@ import lombok.ToString;
 public class ReservationInDTO {
 
     private Long userId;
-    private Long userDni;
+    private Long dni;
     private Long bookId;
     private String observation;
 }
