@@ -15,7 +15,7 @@ public class Reservation {
     private Long id;
     //@OneToOne
     private Long userId;
-    private Long userDni;
+    private Long dni;
     private String userName;
     //@OneToOne
     private Long bookId;
