@@ -1,8 +1,10 @@
 package com.nocountryproject.Backend.service;
 
 import com.nocountryproject.Backend.exceptions.BookExceptions;
+import com.nocountryproject.Backend.exceptions.CategoryException;
 import com.nocountryproject.Backend.mapper.BookInDTOToBook;
 import com.nocountryproject.Backend.persistence.entity.Book;
+import com.nocountryproject.Backend.persistence.entity.Category;
 import com.nocountryproject.Backend.persistence.repository.BookRepository;
 import com.nocountryproject.Backend.service.dto.BookInDTO;
 import org.springframework.http.HttpStatus;
@@ -17,9 +19,12 @@ public class BookService {
     private final BookRepository repository;
     private final BookInDTOToBook mapper;
 
-    public BookService(BookRepository repository, BookInDTOToBook mapper) {
+    private final CategoryService categoryService;
+
+    public BookService(BookRepository repository, BookInDTOToBook mapper, CategoryService categoryService) {
         this.repository = repository;
         this.mapper = mapper;
+        this.categoryService = categoryService;
     }
 
     public Book createBook(BookInDTO bookInDTO){
@@ -61,8 +66,14 @@ public class BookService {
 
     }
 
-    public List<Book> findByIdCategory(Long id){
-        List<Book> listBook = this.repository.findByCategory(id);
+    public List<Book> findByIdCategory(Long idCategory){
+        Optional<Category> listCategory = categoryService.findById(idCategory);
+
+        if(listCategory.isEmpty()){
+            throw new CategoryException("Category not found.", HttpStatus.NOT_FOUND);
+        }
+
+        List<Book> listBook = this.repository.findByCategory(listCategory.get());
 
         if(listBook.isEmpty()){
             throw new BookExceptions("Books not found.", HttpStatus.NOT_FOUND);
