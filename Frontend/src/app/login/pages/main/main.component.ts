@@ -3,7 +3,7 @@ import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import { LoginUser } from 'src/app/shared/models/login-user.model';
-import { JWTResponse } from 'src/app/shared/models/jwtresponse.model';
+
 import { Router } from '@angular/router';
 
 @Component({

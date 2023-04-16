@@ -81,7 +81,11 @@
           class="create-account flex justify-content-between align-items-center"
         >
           <span>¿No tienes una cuenta?</span>
-          <p-button label="Registrate" styleClass="p-button-link"></p-button>
+          <p-button
+            label="Registrate"
+            styleClass="p-button-link"
+            (onClick)="register()"
+          ></p-button>
         </div>
       </form>
       <!-- END FORM -->

@@ -28,6 +28,12 @@ export class SinginFormComponent implements OnInit {
     });
   }
 
+  public register() {
+    this.visible = false;
+    this.form.reset();
+    this.formService.onOpenForm({ type: 'register' });
+  }
+
   public onLogin(): void {
     this.loginUser.emit(this.form.getRawValue() as LoginUser);
     this.visible = false;
