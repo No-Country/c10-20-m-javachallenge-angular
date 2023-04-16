@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { JWTResponse } from '../../models/jwtresponse.model';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit {
     private formService: FormService,
     private authService: AuthService,
     private userService: UserService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {}
   ngOnInit() {
     this.authService.$isLogged.subscribe({
@@ -47,6 +49,11 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Cerrar Sesión',
         icon: 'pi pi-sign-out',
+        command: () => {
+          localStorage.clear();
+          this.authService.isLogged(false);
+          this.router.navigate(['/login']);
+        },
       },
     ];
     this.findAllCategories();
