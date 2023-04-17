@@ -1,10 +1,11 @@
 :host ::ng-deep {
   .p-toolbar {
     justify-content: space-around;
-    background-color: #212121;
+    background: linear-gradient(to top, rgb(39 38 38), black);
     border-top: none;
     border-left: none;
     border-right: none;
+    border-bottom: none;
     border-radius: 0;
     .p-toolbar-group-star {
       .p-menubar {

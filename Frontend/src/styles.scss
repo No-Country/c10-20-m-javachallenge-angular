@@ -3,7 +3,7 @@
   src: url("./assets/fonts/Inter.ttf") format("truetype");
 }
 :root {
-  --licoride: #1b1212;
+  --licoride: black; /* #1b1212; */
   --purple: #a25aff;
 }
 
@@ -17,6 +17,7 @@ body {
   font-family: "Inter";
   margin: 0;
   padding: 0;
+  background-color: var(--licoride);
   .container {
     width: 100%;
     margin: 0 auto;
