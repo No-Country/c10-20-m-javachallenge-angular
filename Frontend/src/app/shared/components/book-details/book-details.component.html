@@ -14,6 +14,7 @@
     </div>
     <div class="mt-auto px-4">
       <p-button
+        *ngIf="isLoggedIn"
         label="Reservar Ahora"
         styleClass="p-button-raised p-button-help"
         [style]="{ width: '100%' }"
