@@ -2,6 +2,9 @@
   .p-tabmenu {
     width: min-content;
     margin: 0 auto;
+    ul{
+      flex-wrap: wrap;
+    }
     .p-tabmenu-nav {
       background-color: transparent;
       .p-tabmenuitem {
@@ -20,4 +23,17 @@
       background-color: transparent;
     }
   }
+}
+
+//media-queries
+@media screen and (min-width: 768px) {
+  :host ::ng-deep{
+    .p-tabmenu {
+        ul {
+          flex-wrap: nowrap;
+        }
+      }
+  }
+ 
+  
 }
