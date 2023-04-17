@@ -2,10 +2,10 @@
   class="hero flex w-full flex-column justify-content-center align-items-center gap-3 pt-3 pb-8"
 >
   <div class="flex justify-content-between align-items-center gap-4 w-8">
-    <img src="./assets/images/hero-image-1.svg" alt="read-avatar-1" />
+    <img class="hidden lg:block" src="./assets/images/hero-image-1.svg" alt="read-avatar-1" />
     <div class="flex flex-column align-items-center justify-content-evenly">
-      <h3 class="text-6xl uppercase text-center">Hola!</h3>
-      <h2 class="text-7xl text-center">¿Buscas un libro?</h2>
+      <h3 class="text-lg md:text-2xl lg:text-7xl uppercase text-center">Hola!</h3>
+      <h2 class="text-lg md:text-2xl lg:text-6xl text-center">¿Buscas un libro?</h2>
     </div>
     <img
       class="align-self-end"
@@ -33,7 +33,7 @@
     <p-button
       class="flex-grow-1"
       label="BUSCAR AHORA"
-      styleClass="p-button-raised p-button-help"
+      styleClass="text-sm p-button-raised p-button-help"
       [style]="{ width: '100%' }"
     ></p-button>
   </div>
