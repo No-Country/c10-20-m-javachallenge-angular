@@ -1,50 +1,28 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from '../../models/book.model';
-import { CategoryService } from '../../services/category.service';
-import { Category } from '../../models/category.model';
 
 @Component({
   selector: 'app-book-view',
   templateUrl: './book-view.component.html',
   styleUrls: ['./book-view.component.scss'],
 })
-export class BookViewComponent implements OnChanges {
+export class BookViewComponent {
   @Input() visible = false;
   @Input() book: Book | undefined;
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
-  category: Category | undefined;
+  detailActive: boolean = true;
+  reservationActive: boolean = false;
 
-  constructor(private categoryService: CategoryService) {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['book']) {
-      this.setCategory();
-    }
-  }
+  constructor() {}
 
   onClose() {
     this.visible = false;
     this.close.emit(false);
+    this.changeComponent();
   }
 
-  setCategory(): void {
-    if (!this.book) return;
-    if (!this.book.id) return;
-
-    const { id }= this.book.category;
-
-    const responseCategory = this.categoryService.findById(id);
-    
-    responseCategory.subscribe({
-      next: (category) => this.category = category,
-    });
+  changeComponent() {
+    this.detailActive = !this.detailActive;
+    this.reservationActive = !this.reservationActive;
   }
 }

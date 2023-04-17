@@ -55,7 +55,7 @@ export class MainComponent implements OnInit {
       next: (resp) => {
         localStorage.setItem('jwt', JSON.stringify(resp));
         this.authService.isLogged(true);
-        this.router.navigateByUrl('/user/home');
+        this.router.navigate(['/user/home']);
       },
       error: (err) => {
         console.log(err);

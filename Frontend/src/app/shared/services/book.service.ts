@@ -17,7 +17,7 @@ export class BookService {
   }
 
   public findByCategory(categoryId: number): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.endpoint}/books/${categoryId}`);
+    return this.http.get<Book[]>(`${this.endpoint}/category?id=${categoryId}`);
   }
 
   public findById(id: number): Observable<Book> {

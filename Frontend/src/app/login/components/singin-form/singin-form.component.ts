@@ -35,8 +35,9 @@ export class SinginFormComponent implements OnInit {
   }
 
   public onLogin(): void {
-    this.loginUser.emit(this.form.getRawValue() as LoginUser);
     this.visible = false;
+    this.loginUser.emit(this.form.getRawValue() as LoginUser);
+    this.formService.onOpenForm({ type: '' });
     this.form.reset();
   }
 

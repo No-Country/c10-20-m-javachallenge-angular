@@ -1,0 +1,40 @@
+<div class="flex">
+  <div
+    class="w-full flex flex-column justify-content-center align-items-center bg-primary-500 p-3"
+  >
+    <img src="./assets/images/reservation-image.svg" alt="" />
+    <p class="m-0 text-0 text-center">
+      Importante: Deberás retirar el libro en el transcurso de 5 días. De lo
+      contrario, tu reserva caerá. Presentarse con DNI.
+    </p>
+  </div>
+  <div class="w-9 pt-6 flex flex-column form-container">
+    <h3 class="text-0 text-center m-0">Confirmar tu Reserva</h3>
+    <div class="px-5">
+      <p-divider></p-divider>
+    </div>
+    <form class="p-4 pt-0 flex flex-column gap-2 text-0" [formGroup]="form">
+      <div class="flex flex-column gap-2">
+        <label htmlFor="dni">DNI</label>
+        <input pInputText id="dni" formControlName="dni" />
+      </div>
+      <div class="flex flex-column gap-2">
+        <label htmlFor="observation">Notas (aclaraciones de tu reserva)</label>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="observation"
+        ></textarea>
+      </div>
+      <div class="mt-auto px-4">
+        <p-button
+          label="Confirmar Reserva"
+          styleClass="p-button-raised p-button-help"
+          [style]="{ width: '100%' }"
+          (onClick)="confirmReservation()"
+        ></p-button>
+      </div>
+    </form>
+  </div>
+</div>
