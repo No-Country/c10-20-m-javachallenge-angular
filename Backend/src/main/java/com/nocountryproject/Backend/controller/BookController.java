@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestBody BookInDTO bookInDTO){
+    public Book createBook(@RequestBody BookInDTO bookInDTO) throws IOException {
         return this.bookService.createBook(bookInDTO);
     }
 

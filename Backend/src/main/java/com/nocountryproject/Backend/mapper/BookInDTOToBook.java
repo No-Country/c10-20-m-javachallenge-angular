@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 @Component
@@ -17,7 +18,7 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
     @Autowired
     private CategoryRepository categoryRepository;
     @Override
-    public Book map(BookInDTO in){
+    public Book map(BookInDTO in) throws IOException {
         Book book = new Book();
         Category category = categoryRepository.findById(in.getIdCategory())
                 .orElseThrow(() -> new NotFoundException("Category not found"));
@@ -30,6 +31,8 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
         book.setSummary(in.getSummary());
         book.setAlta(LocalDate.now());
         book.setCant(0);
+        book.setImage(in.getImage().getBytes());
+
         return book;
     }
 }
