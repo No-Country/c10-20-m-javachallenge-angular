@@ -1,10 +1,19 @@
 :host ::ng-deep {
   .p-tabmenu {
-    width: min-content;
     margin: 0 auto;
     ul{
       flex-wrap: wrap;
+      justify-content: space-between;
+      li {
+        font-size: small;
+        a {
+          font-size: .5rem;
+          padding: 5px !important;
+          flex-direction: column;
+        }
+      }
     }
+
     .p-tabmenu-nav {
       background-color: transparent;
       .p-tabmenuitem {
@@ -26,11 +35,36 @@
 }
 
 //media-queries
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 425px) {
   :host ::ng-deep{
     .p-tabmenu {
         ul {
-          flex-wrap: nowrap;
+          li {
+            a {
+              font-size: small;
+              // flex-direction: row;
+            }
+          }
+        }
+      }
+  }
+ 
+  
+}
+@media screen and (min-width: 768px) {
+  :host ::ng-deep{
+    .p-tabmenu {
+      max-width: 50vw;
+        ul {
+          flex-wrap: wrap;
+          flex-direction: row;
+          gap: 1em;
+          li {
+            a {
+              font-size: medium;
+              flex-direction: row;
+            }
+          }
         }
       }
   }
