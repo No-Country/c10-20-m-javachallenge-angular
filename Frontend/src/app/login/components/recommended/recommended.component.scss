@@ -38,7 +38,9 @@
 @media screen and (min-width: 425px) {
   :host ::ng-deep{
     .p-tabmenu {
+      max-width: 78vw;
         ul {
+          gap: .5em;
           li {
             a {
               font-size: small;
@@ -54,7 +56,7 @@
 @media screen and (min-width: 768px) {
   :host ::ng-deep{
     .p-tabmenu {
-      max-width: 50vw;
+      max-width: 84vw;
         ul {
           flex-wrap: wrap;
           flex-direction: row;
