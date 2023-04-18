@@ -23,4 +23,11 @@
   .p-menu.p-menu-overlay {
     top: 80px !important;
   }
+  .p-button-raised{
+    background-color: var(--purple);
+    border: transparent;
+  }
+  .p-button-raised:is(:hover, :active, :focus) {
+    background-color: var(--purple-hover);
+  }
 }

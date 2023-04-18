@@ -8,7 +8,7 @@
   }
 
   .p-dialog-content {
-    overflow: hidden;
+   // overflow: hidden;
     padding: 0;
     border-radius: 6px;
     color: #fff;
@@ -61,4 +61,17 @@
       }
     }
   }
+  .p-button-raised{
+    background-color: var(--purple);
+    border: transparent;
+  }
+  .p-button-raised:is(:hover,:active,:focus) {
+    background-color: var(--purple-hover);
+  }
 }
+
+.surface-black{
+  background-color: black;
+}
+
+
