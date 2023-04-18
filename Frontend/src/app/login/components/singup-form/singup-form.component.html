@@ -6,23 +6,27 @@
   (onHide)="form.reset()"
 >
   <div
-    class="login-container flex justify-content-center align-items-center bg-primary-500"
+    class="login-container flex flex-column lg:flex-row justify-content-center align-items-center bg-primary-500"
   >
     <div
-      class="login-image-container w-25rem flex justify-content-center align-items-center"
+      class="login-image-container flex justify-content-center align-items-center lg:w-19rem"
     >
-      <img src="./assets/images/hero-image-1.svg" />
+      <img
+        class="max-w-4rem lg:max-w-6rem"
+        src="./assets/images/hero-image-1.svg"
+      />
     </div>
-    <div class="flex flex-column gap-2 w-25rem surface-900 p-3">
+    <div class="flex flex-column gap-2 surface-900 p-3">
       <div class="header-form flex flex-column align-items-center gap-1">
-        <h3 class="m-3">Crear Cuenta</h3>
+        <h3 class="text-sm m-3">Crear Cuenta</h3>
       </div>
       <!-- END FORM-HEADER-->
       <form class="form flex flex-column gap-4" [formGroup]="form">
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Nombre</label>
+            <label class="text-sm">* Nombre</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu nombre"
               formControlName="name"
@@ -31,8 +35,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Apellido</label>
+            <label class="text-sm">* Apellido</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu apellido"
               formControlName="lastname"
@@ -41,8 +46,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* DNI</label>
+            <label class="text-sm">* DNI</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu DNI"
               formControlName="dni"
@@ -51,8 +57,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Email</label>
+            <label class="text-sm">* Email</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu email"
               formControlName="email"
@@ -61,8 +68,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Contraseña</label>
+            <label class="text-sm">* Contraseña</label>
             <p-password
+              class="text-sm"
               placeholder="Ingresa tu contraseña"
               [toggleMask]="true"
               [feedback]="false"
@@ -72,8 +80,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Teléfono</label>
+            <label class="text-sm">* Teléfono</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu teléfono"
               formControlName="telephone"
@@ -82,8 +91,9 @@
         </div>
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
-            <label>* Domicilio</label>
+            <label class="text-sm">* Domicilio</label>
             <input
+              class="text-sm"
               pInputText
               placeholder="Ingresa tu domicilio"
               formControlName="address"
@@ -93,7 +103,7 @@
         <!-- END INPUTGROUP -->
         <p-button
           label="Registrarse"
-          styleClass="p-button-raised"
+          styleClass=" text-sm p-button-raised"
           (onClick)="onRegisterUser()"
           [style]="{ width: '100%' }"
           [disabled]="form.invalid"
