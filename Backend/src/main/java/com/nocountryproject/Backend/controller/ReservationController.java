@@ -38,8 +38,9 @@ public class ReservationController {
     }
 
     @GetMapping("/userReservations")
-    public List<Book> listBookByUser(@PathVariable Long userDni){
-        return reservationService.listBookByUser(userDni);
+    public List<Book> listBookByUser(@PathVariable Long userId){
+
+        return reservationService.listBookByUser(userId);
     }
 
     @PutMapping("/change")
