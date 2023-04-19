@@ -5,11 +5,20 @@
       flex-wrap: wrap;
       justify-content: space-between;
       li {
-        font-size: small;
         a {
-          font-size: .5rem;
+          font-size: .7rem;
           padding: 5px !important;
           flex-direction: column;
+
+          span:nth-child(2){
+            margin-top: 0.3rem;
+          }
+          span {
+            word-break: break-word;
+            max-width: 3.9rem;
+            text-align: center;
+            white-space: normal;
+          }
         }
       }
     }
@@ -38,7 +47,7 @@
 @media screen and (min-width: 425px) {
   :host ::ng-deep{
     .p-tabmenu {
-      max-width: 78vw;
+      max-width: 82vw;
         ul {
           gap: .5em;
           li {
@@ -50,13 +59,11 @@
         }
       }
   }
- 
-  
 }
 @media screen and (min-width: 768px) {
   :host ::ng-deep{
     .p-tabmenu {
-      max-width: 84vw;
+      max-width: 90vw;
         ul {
           flex-wrap: wrap;
           flex-direction: row;
@@ -65,6 +72,12 @@
             a {
               font-size: medium;
               flex-direction: row;
+
+              span {
+                  max-width: max-content;
+                  text-align: center;
+                  white-space: nowrap;
+                }
             }
           }
         }
@@ -72,4 +85,19 @@
   }
  
   
+}
+
+@media screen and (min-width: 1024px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: 90vw;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: 90rem;
+    }
+  }
 }

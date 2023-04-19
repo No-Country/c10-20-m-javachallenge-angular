@@ -1,5 +1,7 @@
 <p-toolbar>
-  <div class="p-toolbar-group-star flex justify-content-between flex-grow-1 md:flex-grow-0 gap-2">
+  <div
+    class="p-toolbar-group-star flex justify-content-between flex-grow-1 md:flex-grow-0 gap-2"
+  >
     <img src="./assets/images/logo.svg" alt="" />
     <p-menubar [model]="menuItems"></p-menubar>
   </div>
@@ -15,7 +17,7 @@
     <p-menu #menu [model]="userMenuItems" [popup]="true"></p-menu>
   </div>
   <div class="p-toolbar-group-end gap-2" *ngIf="!isLogged">
-    <p-button 
+    <p-button
       label="Crear Cuenta"
       styleClass="p-button-secondary p-button-text text-xs md:text-base"
       (onClick)="register()"

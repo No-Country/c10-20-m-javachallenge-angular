@@ -17,6 +17,9 @@
       align-items: center;
     }
   }
+  .input-container{
+    max-width: var(--max-bound);
+  }
 }
 
 @media screen and (min-width: 768px) {
