@@ -1,3 +1,3 @@
 export const environment = {
-  APIUrl: 'http://localhost:8080',
+  APIUrl: 'c10-20-m-javachallenge-angular-production.up.railway.app',
 };
