@@ -6,14 +6,14 @@
   (onHide)="form.reset()"
 >
   <div
-    class="login-container flex justify-content-center align-items-center bg-primary-500"
+    class="login-container flex flex-column lg:flex-row justify-content-center align-items-center bg-primary-500"
   >
     <div
-      class="login-image-container w-25rem flex justify-content-center align-items-center"
+      class="login-image-container flex justify-content-center align-items-center lg:w-19rem"
     >
-      <img src="./assets/images/login-image.svg" />
+      <img class="max-w-18rem" src="./assets/images/login-image.svg" />
     </div>
-    <div class="flex flex-column gap-2 w-25rem surface-900 p-3">
+    <div class="flex flex-column gap-2 surface-black p-3">
       <div class="header-form flex flex-column align-items-center gap-1">
         <h3 class="m-3">Bienvenido!</h3>
         <p-button
@@ -71,7 +71,7 @@
         <!-- END KEEP-LOGGING-IN -->
         <p-button
           label="Ingresar"
-          styleClass="p-button-raised"
+          styleClass="p-button-raised "
           [style]="{ width: '100%' }"
           (onClick)="onLogin()"
         ></p-button>

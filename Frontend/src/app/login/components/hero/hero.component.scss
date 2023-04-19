@@ -2,7 +2,7 @@
   .hero {
     min-height: 420px;
     img {
-      width: 150px;
+      width: 112px;
     }
     h2,
     h3 {
@@ -15,6 +15,29 @@
     .p-dropdown {
       height: 44.8px !important;
       align-items: center;
+    }
+  }
+  .input-container{
+    max-width: var(--max-bound);
+  }
+}
+
+@media screen and (min-width: 768px) {
+   :host ::ng-deep{
+      .hero {
+          img {
+            width: 157px;
+          }
+      }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+  :host ::ng-deep {
+    .hero {
+      img {
+        width: 170px;
+      }
     }
   }
 }
