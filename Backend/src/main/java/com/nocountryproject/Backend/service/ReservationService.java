@@ -67,13 +67,9 @@ public class ReservationService {
         return this.reservationRepository.findByStatus(status);
     }
 
-    public List<Book> listBookByUser(Long userId){
-        List<Book> listBookByUser = new ArrayList();
-        for (Reservation reservation : reservationRepository.findByUserId(userId)){
-            Book book = reservation.getBook();
-            listBookByUser.add(book);
-        }
-        return listBookByUser;
+    public List<Reservation> reservationsByUser(Long userId){
+        List<Reservation> reservationsByUser = this.reservationRepository.findByUserId(userId);
+        return reservationsByUser;
     }
 
     public void changeReservation(Long id) {
