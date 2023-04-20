@@ -48,12 +48,11 @@ public class ReservationService {
     public Reservation makeReservation(ReservationInDTO reservationInDTO){
         Reservation reservation = mapper.map(reservationInDTO);
 
-        Optional<Book> optionalBook = bookRepository.findById(reservation.getBookId());
-        optionalBook.get().setAvailability(false);
-        optionalBook.get().setCant(optionalBook.get().getCant()+1);
+        reservation.getBook().setAvailability(false);
+        reservation.getBook().setCant(reservation.getBook().getCant()+1);
 
-        Optional<User> user = userRepository.findById(reservation.getUserId());
-        emailService.sendMail(user.get().getEmail(),
+        User userEmail = userRepository.findById(reservation.getUserId()).get();
+        emailService.sendMail(userEmail.getEmail(),
                 "RESERVA CONFIRMADA",
                 "Tu reserva ha sido confirmada, recuerda que tienes 5 dias para retiar el libro.");
 
@@ -71,8 +70,8 @@ public class ReservationService {
     public List<Book> listBookByUser(Long userId){
         List<Book> listBookByUser = new ArrayList();
         for (Reservation reservation : reservationRepository.findByUserId(userId)){
-            Optional<Book> book = bookRepository.findById(reservation.getBookId());
-            listBookByUser.add(book.get());
+            Book book = reservation.getBook();
+            listBookByUser.add(book);
         }
         return listBookByUser;
     }
@@ -91,8 +90,7 @@ public class ReservationService {
             throw new ReservationExceptions("RESERVATION NOT FOUND", HttpStatus.NOT_FOUND);
         }
         optionalReservation.get().setStatus(ReservationStatus.RETURNED);
-        Optional<Book> book = bookRepository.findById(optionalReservation.get().getBookId());
-        book.get().setAvailability(true);
+        optionalReservation.get().getBook().setAvailability(true);
     }
 
     @Scheduled(cron = "0 0 8 * * MON-FRI")
@@ -104,8 +102,7 @@ public class ReservationService {
 
             if (period.getDays() > 5 && reservation.getStatus() == ReservationStatus.ON_HOLD) {
                 reservation.setStatus(ReservationStatus.NOT_PICKED_UP);
-                Optional<Book> optionalBook = bookRepository.findById(reservation.getBookId());
-                optionalBook.get().setAvailability(true);
+                reservation.getBook().setAvailability(true);
                 Optional<User> user = userRepository.findById(reservation.getUserId());
                 emailService.sendMail(user.get().getEmail(),
                         "RESERVA CANSELADA",

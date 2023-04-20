@@ -10,6 +10,8 @@ import com.nocountryproject.Backend.service.dto.BookInDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -27,7 +29,7 @@ public class BookService {
         this.categoryService = categoryService;
     }
 
-    public Book createBook(BookInDTO bookInDTO){
+    public Book createBook(BookInDTO bookInDTO) throws IOException {
         Book book = mapper.map(bookInDTO);
         return this.repository.save(book);
     }
