@@ -14,5 +14,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByTitle(String title);
     List<Book> findByAuthor(String author);
     List<Book> findByCategory(Category category);
-
+    @Query("from Book b where upper(b.title) like upper(concat('%', :title,'%')) or upper(b.author) like upper(concat('%', :title,'%')) or upper(b.category.type) like upper(concat('%', :title,'%'))")
+    List<Book> findByTitleOrAuthor(@Param("title") String title);
 }

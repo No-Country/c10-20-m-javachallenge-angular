@@ -84,6 +84,7 @@ public class BookService {
     public List<Book> lastAdded(){
         List<Book> books = this.repository.findAll();
         Collections.sort(books, (Book a, Book b) -> a.getAlta().compareTo(b.getAlta()));
+        Collections.reverse(books);
         return books;
     }
 
@@ -92,5 +93,9 @@ public class BookService {
         Collections.sort(books, (Book a, Book b) ->a.getCant().compareTo(b.getCant()));
         Collections.reverse(books);
         return books;
+    }
+
+    public List<Book> findByTitleOrAuthor(String title){
+        return this.repository.findByTitleOrAuthor(title);
     }
 }
