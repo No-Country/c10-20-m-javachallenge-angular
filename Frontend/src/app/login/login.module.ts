@@ -9,6 +9,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { SinginFormComponent } from './components/singin-form/singin-form.component';
 import { SingupFormComponent } from './components/singup-form/singup-form.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SingupFormComponent } from './components/singup-form/singup-form.compon
     RecommendedComponent,
     SinginFormComponent,
     SingupFormComponent,
+    ContactUsComponent,
   ],
   imports: [CommonModule, LoginRoutingModule, SharedModule],
   providers: [],

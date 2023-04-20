@@ -18,7 +18,8 @@ export class BookViewComponent {
   onClose() {
     this.visible = false;
     this.close.emit(false);
-    this.changeComponent();
+    this.detailActive = true;
+    this.reservationActive = false;
   }
 
   changeComponent() {
