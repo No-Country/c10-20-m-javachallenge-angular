@@ -1,6 +1,8 @@
 package com.nocountryproject.Backend.persistence.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDate;
@@ -15,10 +17,11 @@ public class Reservation {
     private Long id;
     //@OneToOne
     private Long userId;
+    @Nullable
     private Long dni;
     private String userName;
-    //@OneToOne
-    private Long bookId;
+    @OneToOne
+    private Book book;
     @GeneratedValue(strategy = GenerationType.UUID)
     private Long orderNumber;
     private LocalDate reservationDate;
