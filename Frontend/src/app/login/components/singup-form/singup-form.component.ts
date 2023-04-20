@@ -32,6 +32,12 @@ export class SingupFormComponent implements OnInit {
     this.user.emit(this.form.getRawValue() as User);
     this.visible = false;
     this.form.reset();
+    this.formService.onOpenForm({ type: '' });
+  }
+  resetAll() {
+    this.form.reset();
+    this.visible = false;
+    this.formService.onOpenForm({ type: '' });
   }
 
   private createForm(): void {

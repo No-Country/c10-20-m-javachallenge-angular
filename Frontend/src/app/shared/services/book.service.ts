@@ -23,4 +23,10 @@ export class BookService {
   public findById(id: number): Observable<Book> {
     return this.http.get<Book>(`${this.endpoint}/${id}`);
   }
+  public lastAdded(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.endpoint}/lastAdded`);
+  }
+  public mostRead(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.endpoint}/lastAdded`);
+  }
 }

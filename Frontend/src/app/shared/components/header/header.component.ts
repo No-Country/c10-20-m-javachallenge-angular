@@ -42,10 +42,17 @@ export class HeaderComponent implements OnInit {
               this.userLogged = `${resp.name} ${resp.lastname}`;
             },
           });
+          let basePath = 'user/home';
+          this.menuItems[0].routerLink = '/user/home';
         }
       },
     });
     this.userMenuItems = [
+      {
+        label: 'Mis reservas',
+        icon: 'pi pi-book',
+        routerLink: './user/booking',
+      },
       {
         label: 'Cerrar Sesión',
         icon: 'pi pi-sign-out',
@@ -97,15 +104,14 @@ export class HeaderComponent implements OnInit {
     this.menuItems = [
       {
         label: 'Home',
-        command: (event: any) => {
-          console.log('Hiciste click');
-        },
+        routerLink: './',
       },
       {
-        label: 'Libros',
+        label: 'Categorías',
       },
       {
         label: 'Contáctanos',
+        routerLink: './contact',
       },
     ];
     this.menuItems[1].items = this.converCategories();

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -19,6 +19,7 @@ import { MessageService } from 'primeng/api';
 })
 export class BookReservationComponent implements OnInit {
   @Input() bookId!: number;
+  @Output() showAlert: boolean = false;
   form!: FormGroup;
   constructor(
     private fb: FormBuilder,

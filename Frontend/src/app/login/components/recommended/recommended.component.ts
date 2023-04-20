@@ -47,22 +47,36 @@ export class RecommendedComponent implements OnInit {
       next: (resp) => (this.books = resp),
     });
   }
+
+  private lastAdded(): void {
+    this.bookService.lastAdded().subscribe({
+      next: (resp) => (this.books = resp),
+    });
+  }
+
+  private mostRead(): void {
+    this.bookService.mostRead().subscribe({
+      next: (resp) => (this.books = resp),
+    });
+  }
+
   private createTabMenu(): void {
     this.tabMenuItems = [
       {
         label: 'Los más leidos',
         icon: 'pi pi-sort-amount-up',
         id: 't1',
-      },
-      {
-        label: 'Calificación',
-        icon: 'pi pi-star',
-        id: 't2',
+        command: () => {
+          this.mostRead();
+        },
       },
       {
         label: 'Los más recientes',
         icon: 'pi pi-clock',
         id: 't3',
+        command: () => {
+          this.lastAdded();
+        },
       },
       {
         label: 'Todos los libros',
@@ -77,15 +91,15 @@ export class RecommendedComponent implements OnInit {
   }
 
   public getCategory(id: number): string {
-
-    const category: Category | undefined = this.categories.find((c: Category) => c.id === id);
+    const category: Category | undefined = this.categories.find(
+      (c: Category) => c.id === id
+    );
 
     if (category !== undefined) {
       return category.type;
     }
 
     return 'No se encontró una categoría para el id seleccionado';
-
   }
 
   private searchByCategory(): void {

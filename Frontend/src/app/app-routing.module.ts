@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactUsComponent } from './login/components/contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: 'user/home',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'contact',
+    component: ContactUsComponent,
   },
   {
     path: '',

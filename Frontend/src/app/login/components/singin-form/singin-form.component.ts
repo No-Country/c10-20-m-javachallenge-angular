@@ -40,6 +40,11 @@ export class SinginFormComponent implements OnInit {
     this.formService.onOpenForm({ type: '' });
     this.form.reset();
   }
+  resetAll() {
+    this.form.reset();
+    this.visible = false;
+    this.formService.onOpenForm({ type: '' });
+  }
 
   private createForm(): void {
     this.form = this.fb.group({

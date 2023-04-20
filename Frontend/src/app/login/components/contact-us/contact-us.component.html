@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="flex py-2 px-8 justify-content-end align-items-end gap-8">
+    <div class="flex flex-column w-full text-0">
+      <h3 class="m-0">Contáctanos</h3>
+      <p>
+        Librería Joanina está disponible de lunes a sábado de 10 a 18 horas.
+        Podés escribirnos por Whatsapp o dejarnos tu mensaje por mail y lo
+        responderemos a la brevedad.
+      </p>
+      <p>
+        <strong>Whatsapp:</strong>
+        1147562533 <br />
+        <strong>Mail:</strong>
+        joanina@biblioteca.com.ar <br />
+        <strong>Dirección:</strong>
+        Agüero 2502, C1425 CABA
+      </p>
+      <img src="./assets/images/map.svg" alt="" />
+    </div>
+    <div class="w-full mx-4">
+      <img src="./assets/images/contact-image.svg" alt="" />
+    </div>
+  </div>
+</div>
+<app-singin-form (loginUser)="onLoginUser($event)"></app-singin-form>
+<app-singup-form (user)="onRegisterUser($event)"></app-singup-form>
+<p-toast></p-toast>
