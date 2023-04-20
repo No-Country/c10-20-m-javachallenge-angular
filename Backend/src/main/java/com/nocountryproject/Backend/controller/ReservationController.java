@@ -1,6 +1,5 @@
 package com.nocountryproject.Backend.controller;
 
-import com.nocountryproject.Backend.persistence.entity.Book;
 import com.nocountryproject.Backend.persistence.entity.Reservation;
 import com.nocountryproject.Backend.persistence.entity.ReservationStatus;
 import com.nocountryproject.Backend.service.ReservationService;
@@ -38,9 +37,8 @@ public class ReservationController {
     }
 
     @GetMapping("/userReservations")
-    public List<Book> listBookByUser(@PathVariable Long userId){
-
-        return reservationService.listBookByUser(userId);
+    public List<Reservation> reservationsByUser(@PathVariable Long userId){
+        return reservationService.reservationsByUser(userId);
     }
 
     @PutMapping("/change")
