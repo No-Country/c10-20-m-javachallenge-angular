@@ -1,7 +1,31 @@
 :host ::ng-deep {
   .categories-container {
-    height: 120px;
+    height: 110px;
+    overflow: hidden;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
+    width: fit-content;
+    p-carousel {
+      width: 100%;
+    }
+    .p-button {
+      white-space: nowrap;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    .p-button:focus {
+      box-shadow: none;
+      background-color: #5774cd;
+      color: white;
+    }
+    .p-button:hover {
+      background: #5774cd !important;
+      color: white !important;
+    }
+    .p-button:active {
+      box-shadow: none;
+      background-color: #5774cd;
+      color: white;
+    }
   }
 }

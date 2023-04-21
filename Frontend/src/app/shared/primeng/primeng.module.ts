@@ -9,9 +9,13 @@ import { DropdownModule } from 'primeng/dropdown';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
-import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
-import { DividerModule } from 'primeng/divider';
 
+import { DividerModule } from 'primeng/divider';
+import { CarouselModule } from 'primeng/carousel';
+import { ToastModule } from 'primeng/toast';
+import { CheckboxModule } from 'primeng/checkbox';
+import { MenuModule } from 'primeng/menu';
+import { DataViewModule } from 'primeng/dataview';
 @NgModule({
   imports: [
     ToolbarModule,
@@ -20,6 +24,7 @@ import { DividerModule } from 'primeng/divider';
     TabMenuModule,
     MenubarModule,
     InputTextModule,
+    ToastModule,
   ],
   exports: [
     ToolbarModule,
@@ -32,8 +37,12 @@ import { DividerModule } from 'primeng/divider';
     CardModule,
     DialogModule,
     PasswordModule,
-    TriStateCheckboxModule,
     DividerModule,
+    CarouselModule,
+    ToastModule,
+    CheckboxModule,
+    MenuModule,
+    DataViewModule,
   ],
 })
 export class PrimengModule {}

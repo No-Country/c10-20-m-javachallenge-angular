@@ -1,0 +1,15 @@
+:host ::ng-deep {
+  .p-dialog-header {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  .p-dialog {
+    .p-dialog-content {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+}

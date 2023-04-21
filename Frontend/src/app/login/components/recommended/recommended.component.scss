@@ -1,5 +1,101 @@
 :host ::ng-deep {
-  .p-card {
-    width: fit-content !important;
+  .p-tabmenu {
+    margin: 0 auto;
+    ul {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li {
+        a {
+          font-size: 0.7rem;
+          padding: 5px !important;
+          flex-direction: column;
+
+          span:nth-child(2) {
+            margin-top: 0.3rem;
+          }
+          span {
+            word-break: break-word;
+            max-width: 3.9rem;
+            text-align: center;
+            white-space: normal;
+          }
+        }
+      }
+    }
+
+    .p-tabmenu-nav {
+      background-color: transparent;
+      .p-tabmenuitem {
+        .p-menuitem-link {
+          background: transparent;
+          color: white;
+        }
+      }
+      .p-tabmenuitem.p-highlight .p-menuitem-link {
+        border-color: var(--purple);
+      }
+    }
+  }
+  .p-dataview {
+    .p-dataview-content {
+      background-color: transparent;
+    }
+  }
+}
+
+//media-queries
+@media screen and (min-width: 425px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: 82vw;
+      ul {
+        gap: 0.5em;
+        li {
+          a {
+            font-size: small;
+            // flex-direction: row;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: 90vw;
+      ul {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 1em;
+        li {
+          a {
+            font-size: medium;
+            flex-direction: row;
+
+            span {
+              max-width: max-content;
+              text-align: center;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: max-content;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  :host ::ng-deep {
+    .p-tabmenu {
+      max-width: max-content;
+    }
   }
 }

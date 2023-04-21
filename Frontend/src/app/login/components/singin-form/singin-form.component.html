@@ -3,16 +3,17 @@
   [modal]="true"
   [draggable]="false"
   [resizable]="false"
+  (onHide)="resetAll()"
 >
   <div
-    class="login-container flex justify-content-center align-items-center bg-primary-500"
+    class="login-container flex flex-column lg:flex-row justify-content-center align-items-center bg-primary-500"
   >
     <div
-      class="login-image-container w-25rem flex justify-content-center align-items-center"
+      class="login-image-container flex justify-content-center align-items-center lg:w-19rem"
     >
-      <img src="./assets/images/login-image.svg" />
+      <img class="max-w-18rem" src="./assets/images/login-image.svg" />
     </div>
-    <div class="flex flex-column gap-2 w-25rem surface-900 p-3">
+    <div class="flex flex-column gap-2 surface-black p-3">
       <div class="header-form flex flex-column align-items-center gap-1">
         <h3 class="m-3">Bienvenido!</h3>
         <p-button
@@ -28,11 +29,15 @@
         </p-divider>
       </div>
       <!-- END FORM-HEADER-->
-      <form class="flex flex-column gap-4">
+      <form class="flex flex-column gap-4" [formGroup]="form">
         <div class="card flex justify-content-center">
           <div class="flex flex-column gap-2 w-full">
             <label>Email</label>
-            <input pInputText placeholder="Ingresa tu dirección email" />
+            <input
+              pInputText
+              placeholder="Ingresa tu dirección email"
+              formControlName="email"
+            />
           </div>
         </div>
         <!-- END INPUTGROUP -->
@@ -43,13 +48,17 @@
               placeholder="Ingresa tu contraseña"
               [toggleMask]="true"
               [feedback]="false"
+              formControlName="password"
             ></p-password>
           </div>
         </div>
         <!-- END INPUTGROUP -->
         <div class="flex justify-content-between">
           <div class="keep-sing-in flex gap-1 align-items-center">
-            <p-triStateCheckbox></p-triStateCheckbox>
+            <p-checkbox
+              [binary]="true"
+              formControlName="rememberMe"
+            ></p-checkbox>
             <span>Mantenerme conectado</span>
           </div>
           <div class="recover-password">
@@ -62,8 +71,9 @@
         <!-- END KEEP-LOGGING-IN -->
         <p-button
           label="Ingresar"
-          styleClass="p-button-raised"
+          styleClass="p-button-raised "
           [style]="{ width: '100%' }"
+          (onClick)="onLogin()"
         ></p-button>
         <!-- END LOGIN-BUTTON -->
 
@@ -71,7 +81,11 @@
           class="create-account flex justify-content-between align-items-center"
         >
           <span>¿No tienes una cuenta?</span>
-          <p-button label="Registrate" styleClass="p-button-link"></p-button>
+          <p-button
+            label="Registrate"
+            styleClass="p-button-link"
+            (onClick)="register()"
+          ></p-button>
         </div>
       </form>
       <!-- END FORM -->

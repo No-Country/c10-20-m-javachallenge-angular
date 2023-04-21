@@ -1,5 +1,10 @@
+/* .header {
+  position: sticky;
+} */
 .container {
   position: relative;
+  overflow: hidden;
+  /*  margin-top: 97px; */
   .categories {
     position: absolute;
     top: 50;

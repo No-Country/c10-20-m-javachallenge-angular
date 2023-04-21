@@ -1,0 +1,20 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50%' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="onClose()"
+>
+  <div class="book-view-container">
+    <app-book-details
+      [book]="book"
+      *ngIf="detailActive"
+      (makeRservation)="changeComponent()"
+    ></app-book-details>
+    <app-book-reservation
+      *ngIf="reservationActive"
+      [bookId]="book?.id!"
+    ></app-book-reservation>
+  </div>
+</p-dialog>

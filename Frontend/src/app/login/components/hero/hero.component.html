@@ -1,31 +1,50 @@
 <div
   class="hero flex w-full flex-column justify-content-center align-items-center gap-3 pt-3 pb-8"
 >
-  <div class="flex justify-content-center align-items-center gap-4">
-    <img src="./assets/images/hero-image-1.svg" alt="read-avatar-1" />
+  <div
+    class="flex flex-wrap-reverse md:flex-nowrap justify-content-center mt-6 gap-4 w-8"
+  >
+    <img
+      class="hidden lg:block"
+      src="./assets/images/hero-image-1.svg"
+      alt="read-avatar-1"
+    />
     <div class="flex flex-column align-items-center justify-content-evenly">
-      <h3 class="text-6xl uppercase">Hola!</h3>
-      <h2 class="text-7xl">¿Buscas un libro?</h2>
+      <h3 class="text-lg md:text-2xl lg:text-7xl uppercase text-center">
+        Hola!👋
+      </h3>
+      <h2 class="text-lg md:text-2xl lg:text-6xl text-center">
+        ¿Buscas un libro?
+      </h2>
     </div>
     <img
-      class="align-self-end"
+      class="align-self-end sm:align-self-center"
       src="./assets/images/hero-image-2.svg"
       alt="read-avatar-2"
     />
   </div>
-  <div class="flex gap-2 align-items-end">
-    <span class="p-input-icon-left">
+  <div class="flex flex-wrap gap-2 align-items-end w-8 input-container">
+    <span class="p-input-icon-left flex-grow-1">
       <i class="pi pi-search"></i>
-      <input type="text" pInputText />
+      <input
+        type="text"
+        pInputText
+        placeholder="Título o autor"
+        [style]="{ width: '100%' }"
+      />
     </span>
     <p-dropdown
       [options]="categories"
       optionLabel="type"
       placeholder="Categorías"
+      class="flex-grow-1"
+      [style]="{ width: '100%' }"
     ></p-dropdown>
     <p-button
+      class="flex-grow-1"
       label="BUSCAR AHORA"
-      styleClass="p-button-raised p-button-help"
+      styleClass="text-sm p-button-raised p-button-help"
+      [style]="{ width: '100%' }"
     ></p-button>
   </div>
 </div>

@@ -8,6 +8,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { SinginFormComponent } from './components/singin-form/singin-form.component';
+import { SingupFormComponent } from './components/singup-form/singup-form.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,11 @@ import { SinginFormComponent } from './components/singin-form/singin-form.compon
     CategoriesComponent,
     RecommendedComponent,
     SinginFormComponent,
+    SingupFormComponent,
+    ContactUsComponent,
   ],
   imports: [CommonModule, LoginRoutingModule, SharedModule],
+  providers: [],
+  exports: [HeroComponent, RecommendedComponent],
 })
 export class LoginModule {}
