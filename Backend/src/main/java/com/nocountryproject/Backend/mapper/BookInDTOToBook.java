@@ -31,7 +31,10 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
         book.setSummary(in.getSummary());
         book.setAlta(LocalDate.now());
         book.setCant(0);
+<<<<<<< Updated upstream
         book.setImage(in.getImage().getBytes());
+=======
+>>>>>>> Stashed changes
 
         return book;
     }

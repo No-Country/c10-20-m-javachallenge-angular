@@ -27,8 +27,13 @@ public class Book {
     private String summary;
     private LocalDate alta;
     private Integer cant;
+<<<<<<< Updated upstream
     @Lob
     private byte[] image;
+=======
+    @Column(columnDefinition = "MEDIUMTEXT")
+    private String image;
+>>>>>>> Stashed changes
     @PrePersist
     private void prePersist(){
         availability=true;

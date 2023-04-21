@@ -7,8 +7,10 @@ import com.nocountryproject.Backend.persistence.entity.Book;
 import com.nocountryproject.Backend.persistence.entity.Category;
 import com.nocountryproject.Backend.persistence.repository.BookRepository;
 import com.nocountryproject.Backend.service.dto.BookInDTO;
+import net.iharder.Base64;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -19,7 +21,6 @@ import java.util.Optional;
 public class BookService {
     private final BookRepository repository;
     private final BookInDTOToBook mapper;
-
     private final CategoryService categoryService;
 
     public BookService(BookRepository repository, BookInDTOToBook mapper, CategoryService categoryService) {
@@ -28,8 +29,13 @@ public class BookService {
         this.categoryService = categoryService;
     }
 
-    public Book createBook(BookInDTO bookInDTO) throws IOException {
+    public Book createBook(BookInDTO bookInDTO, MultipartFile image) throws IOException {
         Book book = mapper.map(bookInDTO);
+        try {
+            book.setImage(Base64.encodeBytes(image.getBytes()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return this.repository.save(book);
     }
 

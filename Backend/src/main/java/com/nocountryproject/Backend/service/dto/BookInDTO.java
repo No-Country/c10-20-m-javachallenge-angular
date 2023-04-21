@@ -15,5 +15,8 @@ public class BookInDTO {
     private String publisherHouse;
     private Integer yearOfPublication;
     private String summary;
+<<<<<<< Updated upstream
     private MultipartFile image;
+=======
+>>>>>>> Stashed changes
 }
