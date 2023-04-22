@@ -36,7 +36,7 @@ public class ReservationController {
         return this.reservationService.findByStatus(status);
     }
 
-    @GetMapping("/userReservations")
+    @GetMapping("/userReservations/{userId}")
     public List<Reservation> reservationsByUser(@PathVariable Long userId){
         return reservationService.reservationsByUser(userId);
     }
