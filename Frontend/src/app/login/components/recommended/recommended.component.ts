@@ -29,6 +29,13 @@ export class RecommendedComponent implements OnInit {
     this.findAllCategories();
     this.findAllBooks();
     this.searchByCategory();
+    this.searchByAuthorOrTitle();
+  }
+  
+  public searchByAuthorOrTitle(){
+    this.bookService.$listBooks.subscribe(list => {
+      if(list.length > 0) this.books = list;
+    }  );
   }
 
   public onShowBook(book: Book): void {
