@@ -27,6 +27,8 @@ public class Book {
     private String summary;
     private LocalDate alta;
     private Integer cant;
+    @Column(columnDefinition = "MEDIUMTEXT")
+    private String image;
     @PrePersist
     private void prePersist(){
         availability=true;

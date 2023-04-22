@@ -29,9 +29,14 @@ public class BookService {
         this.categoryService = categoryService;
     }
 
-    public Book createBook(BookInDTO bookInDTO) throws IOException {
+    public Book createBook(BookInDTO bookInDTO, MultipartFile image) throws IOException {
 
         Book book = mapper.map(bookInDTO);
+        try {
+            book.setImage(Base64.encodeBytes(image.getBytes()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         return this.repository.save(book);
     }
 

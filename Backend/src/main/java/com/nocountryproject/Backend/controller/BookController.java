@@ -25,8 +25,8 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestBody BookInDTO bookInDTO) throws IOException {
-        return this.bookService.createBook(bookInDTO);
+    public Book createBook(@RequestBody BookInDTO bookInDTO, @RequestParam("image")MultipartFile image) throws IOException {
+        return this.bookService.createBook(bookInDTO, image);
     }
 
     @GetMapping
