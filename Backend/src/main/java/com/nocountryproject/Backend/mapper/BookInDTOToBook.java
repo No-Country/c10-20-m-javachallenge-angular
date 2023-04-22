@@ -31,7 +31,6 @@ public class BookInDTOToBook implements IMapper<BookInDTO, Book>{
         book.setSummary(in.getSummary());
         book.setAlta(LocalDate.now());
         book.setCant(0);
-        //book.setImage(in.getImage().getBytes());
 
         return book;
     }

@@ -7,7 +7,6 @@ import lombok.Setter;
 import java.awt.*;
 import java.time.LocalDate;
 
-
 @Getter @Setter
 @Entity
 @Table(name = "book")
@@ -28,7 +27,6 @@ public class Book {
     private String summary;
     private LocalDate alta;
     private Integer cant;
-    //private byte[] image;
     @PrePersist
     private void prePersist(){
         availability=true;

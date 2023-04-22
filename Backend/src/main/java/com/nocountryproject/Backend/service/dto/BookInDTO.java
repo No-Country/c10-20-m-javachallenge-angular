@@ -15,5 +15,4 @@ public class BookInDTO {
     private String publisherHouse;
     private Integer yearOfPublication;
     private String summary;
-    //private MultipartFile image;
 }
