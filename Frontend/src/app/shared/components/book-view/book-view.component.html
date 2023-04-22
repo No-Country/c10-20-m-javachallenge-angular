@@ -14,7 +14,8 @@
     ></app-book-details>
     <app-book-reservation
       *ngIf="reservationActive"
-      [bookId]="book?.id!"
+      [book]="book!"
+      (closeDialog)="onClose()"
     ></app-book-reservation>
   </div>
 </p-dialog>

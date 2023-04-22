@@ -18,4 +18,9 @@ export class ReservationService {
   ): Observable<Reservation> {
     return this.http.post<Reservation>(this.endpoint, makeReservation);
   }
+  public getByUserId(userId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(
+      `${this.endpoint}/userReservations/${userId}`
+    );
+  }
 }
