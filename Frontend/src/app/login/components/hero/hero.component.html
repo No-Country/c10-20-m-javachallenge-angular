@@ -27,9 +27,10 @@
     <span class="p-input-icon-left flex-grow-1">
       <i class="pi pi-search"></i>
       <input
+        (input)="onInputChange($event)"
         type="text"
         pInputText
-        placeholder="Título o autor"
+        placeholder="Título o autor..."
         [style]="{ width: '100%' }"
       />
     </span>
@@ -45,6 +46,7 @@
       label="BUSCAR AHORA"
       styleClass="text-sm p-button-raised p-button-help"
       [style]="{ width: '100%' }"
+      (onClick)="principalSearch()"
     ></p-button>
   </div>
 </div>
