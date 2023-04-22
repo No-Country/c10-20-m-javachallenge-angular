@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -11,6 +11,7 @@ import { UserService } from '../../services/user.service';
 import { ReservationService } from '../../services/reservation.service';
 import { MakeReservation } from '../../models/make-reservation.model';
 import { MessageService } from 'primeng/api';
+import { Book } from '../../models/book.model';
 
 @Component({
   selector: 'app-book-reservation',
@@ -18,9 +19,10 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./book-reservation.component.scss'],
 })
 export class BookReservationComponent implements OnInit {
-  @Input() bookId!: number;
+  @Input() book!: Book;
   @Output() showAlert: boolean = false;
   form!: FormGroup;
+  @Output() closeDialog: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -38,7 +40,7 @@ export class BookReservationComponent implements OnInit {
     this.form = this.fb.group({
       userId: this.userId,
       dni: new FormControl('', Validators.required),
-      bookId: this.bookId,
+      book: this.book,
       observation: new FormControl('', Validators.required),
     });
   }
@@ -52,6 +54,7 @@ export class BookReservationComponent implements OnInit {
           summary: '',
           detail: 'Reserva registrada',
         });
+        this.closeDialog.emit(false);
       },
     });
   }
